@@ -7,10 +7,12 @@
   
   .login-form {
     text-align: center;
-    border: 2px solid rgb(212, 208, 201);
-    background-color: rgb(212, 208, 201);
+    border: none;
+    background-color: #D9D9D9;
     padding: 60px;
     width: 45%;
+    max-width: 1000px;
+    max-height: 800px;
   }
   
   .form-group {
@@ -30,17 +32,21 @@
     width: 100%; /* Hace que los inputs ocupen el ancho completo */
     padding: 10px; /* Espaciado interno para los inputs */
     margin-top: 10px; /* Espacio entre el label y el input */
+    border: none;
+    border-radius: 5px;
   }
   
   .login-button, .create-button { /* Se unifican los estilos de ambos botones */
     padding: 10px 15px;
     cursor: pointer;
     border: none;
-    width: 100%; /* Hace que ambos botones ocupen el ancho completo */
-    margin-top: 10px; /* Espacio entre los botones */
+    width: 300px; /* Hace que ambos botones ocupen el ancho completo */
+    margin: 6px; /* Espacio entre los botones */
     background-color: rgb(0, 0, 0); /* Color de fondo, puedes cambiarlo */
     color: white; /* Color del texto, puedes cambiarlo */
     font-weight: bold; /* Hace que el texto sea más grueso */
+    font-size: 16px;
+    border-radius: 5px;
   }
   
   .create-button {
