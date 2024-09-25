@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+}
+  
+.abril-fatface-regular {
+  font-family: "Abril Fatface", serif;
+  font-weight: lighter;
+  font-style: normal;
+}
+
+.advent-pro-clean {
+  font-family: "Advent Pro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #000;
+}
+
+.botones-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: scale(0.6);
+}
+
+.botones-header button {
+  height: 100px;
+  border: none;
+  transform: scale(0.7);
+  vertical-align: middle;
+}
+
+.botones-header button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.div-contacto {
+  float: left;
+  margin-left: 80px;
+  height: 100px;
+}
+
+.contacto-texto {
+  font-size: 35px;
+  font-family: "Advent Pro", sans-serif;
+  margin-top: 50px;
+  transform: translateY(-50%);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+
+.contacto-texto::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #333;
+  bottom: -2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.contacto-texto:hover::before {
+  width: 100%;
+}
+
+.contacto-a, .contacto-a:visited {
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.contacto-a:hover {
+  opacity: 0.6;
+}
+
+.logo-marca:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.marca-registrada {
+  font-size: 40px;
+  vertical-align: bottom;
+}
+
+body {
+  font-family: "Advent Pro", sans-serif;
+  overflow-x: hidden;
+}
+
+.titulo-producto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 65px 0;
+  transition: all 0.5s ease;
+}
+
+.nueva-coleccion {
+  display: flex;
+  width: 100%;
+  padding-top: 600px;
+  padding-left: 10px;
+}
+
+.nueva-coleccion-texto {
+  color: rgb(233, 233, 233);
+  opacity: 0.7;
+  font-size: 35px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.fondo {
+  height: 654px;
+  background-size: cover;
+  background-position-y: -145px;
+  background-repeat: no-repeat;
+}
+
+.titulo-landing-main {
+  color: black;
+  text-decoration: none;
+  font-family: "Times New Roman", serif;
+  font-size: 250px;
+  opacity: 0.8;
+  text-align: center;
+  line-height: 0.5;
+  position: fixed;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.logo-marca-landing {
+  color: rgb(0, 0, 0);
+  font-family: "Times New Roman", serif;
+  font-size: 80px;
+  text-align: center;
+  position: fixed;
+  top: 4.5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nuestros-productos {
+  height: auto;
+  padding: 50px 0;
+  box-shadow: inset 0 10px 10px -9px rgba(0, 0, 0, 0.7);
+  background-color: rgb(223, 223, 223);
+}
+
+.nuestros-productos-texto {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  color: #333;
+}
+
+.seccion-ver-productos {
+  display: flex;
+  justify-content: space-between;
+  height: 700px;
+  background-color: rgb(223, 223, 223);
+}
+
+.ver-productos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 500;
+  color: #FFF;
+  background: none;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  opacity: 0.95;
+  padding: 350px 0;
+}
+
+.ver-productos:hover {
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+
+.ver-productos:visited {
+  color: #FFF;
+}
+
+.ver-productos::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: #f7f7f7;
+  bottom: -2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.ver-productos:hover::before {
+  width: 100%;
+}
+
+.ver-anillos, .ver-aros {
+  margin: 30px;
+  padding: 200px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: all 0.15s;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.7);
+}
+
+.ver-anillos:hover, .ver-aros:hover {
+  animation: agrandarImagen 0.15s forwards;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+
+.ver-anillos:not(:hover), .ver-aros:not(:hover) {
+  animation: achicarImagen 0.15s forwards;
+}
+
+@keyframes agrandarImagen {
+  0% { background-size: cover; }
+  100% { background-size: 110%; }
+}
+
+@keyframes achicarImagen {
+  0% { background-size: 110%; }
+  100% { background-size: cover; }
+}
+
+.icono-menu, .icono-buscar, .icono-carro, .icono-usuario {
+  background: none;
+}

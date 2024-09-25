@@ -1,7 +1,7 @@
 // src/pages/Home.js
 import React from 'react';
 // import MenuDesplegable from '../components/MenuDesplegable.js';
-// import './Home.css';
+import './Home.css';
 
 const Home = () => {
   return (
