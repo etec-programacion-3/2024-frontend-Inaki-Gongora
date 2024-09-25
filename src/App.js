@@ -1,5 +1,6 @@
 // src/App.js
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Anillos from './pages/Anillos/Anillos';
@@ -9,7 +10,7 @@ import Login from './pages/Usuario/Login';
 import Registro from './pages/Usuario/Registro';
 import NotFound from './pages/NotFound/NotFound';
 import ProductoDetalle from './pages/ProductoDetalle/ProductoDetalle';
-
+import Footer from './components/layout/Footer';
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
         <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer></Footer>
     </Router>
   );
 }

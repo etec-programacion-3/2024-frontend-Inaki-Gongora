@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* La página ocupa al menos toda la altura de la ventana */
+}
+
+main {
+  flex: 1; /* Ocupa todo el espacio disponible entre el navbar y el footer */
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* App.css */
+
+html, body {
+  height: 100%; /* Asegura que el body y el html ocupen toda la ventana */
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* La aplicación ocupa al menos toda la altura de la ventana */
+}
+
+main {
+  flex: 1; /* Se expande para ocupar el espacio disponible entre el navbar y el footer */
+  padding: 20px; /* Puedes ajustar según el diseño */
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto; /* Esto asegura que el footer se quede al final */
+}
