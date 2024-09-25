@@ -11,20 +11,24 @@ import Registro from './pages/Usuario/Registro';
 import NotFound from './pages/NotFound/NotFound';
 import ProductoDetalle from './pages/ProductoDetalle/ProductoDetalle';
 import Footer from './components/layout/Footer';
+import Header from './components/Header.js';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/anillos" element={<Anillos />} />
-        <Route path="/aros" element={<Aros />} />
-        <Route path="/carrito" element={<Carrito />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registro" element={<Registro />} />
-        <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer></Footer>
+      <div className='App'>
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/anillos" element={<Anillos />} />
+          <Route path="/aros" element={<Aros />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer></Footer>
+      </div>
     </Router>
   );
 }
