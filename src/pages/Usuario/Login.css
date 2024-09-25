@@ -1,0 +1,49 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-form {
+    text-align: center;
+    border: 2px solid rgb(212, 208, 201);
+    background-color: rgb(212, 208, 201);
+    padding: 60px;
+    width: 45%;
+  }
+  
+  .form-group {
+    margin-bottom: 35px;
+    position: relative; /* Necesario para posicionar el label */
+  }
+  
+  label {
+    position: absolute;
+    top: -20px; /* Ajusta la posición del label según sea necesario */
+    left: 10px; /* Ajusta la posición del label según sea necesario */
+    padding: 0 5px; /* Espaciado para evitar que se vea cortado */
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%; /* Hace que los inputs ocupen el ancho completo */
+    padding: 10px; /* Espaciado interno para los inputs */
+    margin-top: 10px; /* Espacio entre el label y el input */
+  }
+  
+  .login-button, .create-button { /* Se unifican los estilos de ambos botones */
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    width: 100%; /* Hace que ambos botones ocupen el ancho completo */
+    margin-top: 10px; /* Espacio entre los botones */
+    background-color: rgb(0, 0, 0); /* Color de fondo, puedes cambiarlo */
+    color: white; /* Color del texto, puedes cambiarlo */
+    font-weight: bold; /* Hace que el texto sea más grueso */
+  }
+  
+  .create-button {
+    background-color: rgb(0, 0, 0); /* Asegúrate de que tenga el mismo color */
+  }
+  
