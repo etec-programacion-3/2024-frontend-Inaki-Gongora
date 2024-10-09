@@ -90,5 +90,5 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
-  margin-top: auto; /* Esto asegura que el footer se quede al final */
+  margin-top: 75%; /* Esto asegura que el footer se quede al final */
 }
