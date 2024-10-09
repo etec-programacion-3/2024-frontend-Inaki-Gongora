@@ -1,0 +1,64 @@
+/* Header.css */
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    border-bottom: 1px solid #ddd;
+    transition: top 0.5s ease;
+    background-color: rgba(75, 75, 75, 0.862);
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+}
+  
+.div-contacto {
+    flex: 1;
+}
+  
+.contacto-a {
+    text-decoration: none;
+    color: white;
+}
+  
+.contacto-texto {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.logo-marca {
+    flex: 1;
+    text-align: center; /* Centrar el logo */
+}
+
+.logo-texto {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 46px;
+    font-weight: bold;
+    color: rgb(0, 0, 0); /* Color del texto del logo */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.botones-header {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+  
+.icono-buscar,
+.icono-carro,
+.icono-usuario,
+.icono-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+  
+.icono-buscar img,
+.icono-carro img,
+.icono-usuario img,
+.icono-menu img {
+    width: 80px;
+}
