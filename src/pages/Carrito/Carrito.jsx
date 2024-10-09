@@ -23,7 +23,7 @@ const Carrito = () => {
       <div className="carrito-container">
         <img src={bolsaDeCompras} alt="Imagen de carrito vacío" className="carrito-imagen" />
         <h1>¡Empieza tu carrito de compras!</h1>
-        <a className="a-login" href="/productos">
+        <a className="a-login" href="/">
           <button type="submit" className="login-button">Descubrir productos</button>
         </a>
       </div>
