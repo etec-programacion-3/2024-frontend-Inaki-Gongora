@@ -27,12 +27,12 @@ const Header = () => {
         <button className="icono-buscar" id="icono-buscar" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
           <img src={ImagenBuscar} alt="buscar" id="lupa-buscar" style={{ width: '40px' }} />
         </button>
-        <Link to="/carro" className="icono-carro" id="icono-carro" style={{ textDecoration: 'none' }}>
+        <Link to="/carrito" className="icono-carro" id="icono-carro" style={{ textDecoration: 'none' }}>
           <img src={Carro} alt="carro" style={{ width: '40px' }} />
         </Link>
-        <button className="icono-usuario" id="icono-usuario" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
+        <Link to="/login" className="icono-usuario" id="icono-usuario" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
           <img src={User} alt="usuario" style={{ width: '40px' }} />
-        </button>
+        </Link>
         <button className="icono-menu" id="icono-menu" style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
           <img src={Menu} alt="menu" style={{ width: '40px' }} />
         </button>

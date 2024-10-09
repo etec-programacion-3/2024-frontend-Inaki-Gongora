@@ -2,6 +2,8 @@
 import React from 'react';
 // import MenuDesplegable from '../components/MenuDesplegable.js';
 import './Home.css';
+import fondoLanding from '../../assets/fondo-landing.png';
+
 const Home = () => {
   return (
     <div className="fondo">
@@ -9,7 +11,7 @@ const Home = () => {
       <main>
         <h1 className="titulo-landing-main">ZEPHYR<span className="marca-registrada">&reg;</span></h1>
         <div className="nueva-coleccion">
-         <img src='./assets/fondo-producto3.png'></img>
+         <img src={fondoLanding }></img>
           <p className="nueva-coleccion-texto">NUEVA COLECCIÓN - 2024</p>
         </div>
         <div className="nuestros-productos">
