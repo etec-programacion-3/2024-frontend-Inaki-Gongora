@@ -344,10 +344,6 @@ input {
     text-decoration: none;
 }
 
-.login-button:hover {
-    transform: scale(1.05);
-}
-
 .crear-cuenta {
     color: #093b5d;
     text-decoration: none;
