@@ -31,20 +31,6 @@ main {
     margin-top: 150px;
 }
   
-header {
-    background-color: #F9F9F9;
-    height: 100px;
-    width: auto;
-    position: fixed;
-    top: 0; 
-    left: 0;
-    right: 0; 
-    z-index: 2;
-    border-bottom: 1px solid #000;
-    opacity: 0.85;
-    
-}
-  
   
 .botones-header {
     display: flex;
