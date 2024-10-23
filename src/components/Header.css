@@ -1,50 +1,63 @@
 /* Header.css */
-
+*{
+    margin: 0;
+    padding: 0;
+}
 #header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
-    border-bottom: 1px solid #ddd;
-    transition: top 0.5s ease;
-    background-color: rgba(75, 75, 75, 0.862);
-    color: rgb(255, 255, 255);
-    margin-bottom: 30px;
+    border-bottom: 1px solid #000000;
+    background-color: rgba(181, 181, 181, 0.862);
+    height: 100px;
+    width: 100%
 }
   
 .div-contacto {
-    flex: 1;
+   flex: 1;
+   margin-left: 0px;
 }
   
+.div-contacto:hover {
+    transform: none;
+    color: inherit;
+}
 .contacto-a {
     text-decoration: none;
     color: white;
 }
   
 .contacto-texto {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 36px;
+    font-family: 'sans-serif';
+    font-size: 24px;
     font-weight: bold;
+    text-align: left;
+    margin-left: 40px;
+    color: black;
 }
 
 .logo-marca {
     flex: 1;
-    text-align: center; /* Centrar el logo */
+    text-align: center;
+}
+
+.logo-marca:visited {
+    color: rgba(181, 181, 181, 0.862);
+    
 }
 
 .logo-texto {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Abril Fatface';
     font-size: 46px;
-    font-weight: bold;
-    color: rgb(0, 0, 0); /* Color del texto del logo */
-    text-decoration: none; /* Sin subrayado */
+    color: rgb(0, 0, 0); 
+
 }
 
 .botones-header {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    gap: 15px;
+    gap: 15px;;
 }
   
 .icono-buscar,

@@ -17,16 +17,18 @@ function App() {
     <Router>
       <div className='App'>
         <Header></Header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/anillos" element={<Anillos />} />
-          <Route path="/aros" element={<Aros />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/anillos" element={<Anillos />} />
+            <Route path="/aros" element={<Aros />} />
+            <Route path="/carrito" element={<Carrito />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/registro" element={<Registro />} />
+            <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
         <Footer></Footer>
       </div>
     </Router>
