@@ -4,20 +4,27 @@ import './Home.css';
 
 const Home = () => {
   return (
-  <div>
-    <div className='Imagen-fondo'>
-      <p>Zephyr</p>
-    </div>
+  <html>
+      
+    <head>
+      <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet"></link>
+    </head>
+    <div>
+      <div className='Imagen-fondo'>
+        <p>Zephyr</p>
+      </div>
 
-    <section className='seccion'>
-      <div className='div-imagenes'>
-        <h1> Anillos</h1>
-      </div>
-      <div className= "div-imagenes1">
-        <h1> Aritos </h1>
-      </div>
-    </section>
-  </div>
+      <section className='seccion'>
+        <div className='div-imagenes'>
+          <h1> Anillos</h1>
+        </div>
+        <div className= "div-imagenes1">
+          <h1> Aros </h1>
+        </div>
+      </section>
+    </div>
+    
+  </html>
   );
 };
 

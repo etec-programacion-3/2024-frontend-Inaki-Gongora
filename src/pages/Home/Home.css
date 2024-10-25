@@ -1,3 +1,18 @@
+.abril-fatface-regular {
+    font-family: "Abril Fatface", serif;
+    font-weight: lighter;
+    font-style: normal;
+  }
+  
+  .advent-pro-clean {
+    font-family: "Advent Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings:
+      "width" 100;
+  }
+
 .Imagen-fondo {
     width: 100%;
     height: 600px;
@@ -12,6 +27,7 @@
     align-items: center; /* Vertical centering */
 }
 
+
 /* Style for the section and its children */
 .seccion {
     display: flex;            /* Enables flexbox layout */
@@ -22,28 +38,50 @@
 }
 
 .div-imagenes {
+    font-family: "Advent Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings:
+      "width" 100;
     width: 45%;   
-    height: 500px;            /* Adjust width to make them fit side by side */
-    text-align: center;        /* Centers the content inside the div */
+    height: 500px; 
+    text-align: center; 
     padding: 20px;
-    background-color: #f9f9f9; /* Light background for distinction */
+    background-color: #f9f9f9; 
     background-image: url(./../../assets/ver-anillos.png);
     background-size: cover;
     background-position: center;
     color: white;
+    display: flex;             /* Enables flexbox layout */
+    flex-direction: column;    /* Stack children vertically */
+    justify-content: flex-end; /* Align children to the bottom */
+    margin-bottom: 30px;       /* Add spacing below the div */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.div-imagenes:hover {
+    transform: scale(1.01);    /* Slightly enlarge the div on hover */
 }
 
 .div-imagenes1 {
     width: 45%;   
-    height: 500px;            /* Adjust width to make them fit side by side */
-    text-align: center;        /* Centers the content inside the div */
+    height: 500px; 
+    text-align: center; 
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; 
     background-image: url(./../../assets/ver-aros.png);
     background-size: cover;
     background-position: center;
     color: white;
-    /* Light background for distinction */
+    display: flex;             /* Enables flexbox layout */
+    flex-direction: column;    /* Stack children vertically */
+    justify-content: flex-end; /* Align children to the bottom */
+    margin-bottom: 30px;       /* Add spacing below the div */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
 }
 
+.div-imagenes1:hover {
+    transform: scale(1.01);    /* Slightly enlarge the div on hover */
+}
 
