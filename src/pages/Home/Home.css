@@ -1,0 +1,49 @@
+.Imagen-fondo {
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    background-image: url(./../../assets/fondo-landing-copia.png);
+    background-size: cover;
+    background-position: center;
+
+    /* Flexbox properties for centering */
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+}
+
+/* Style for the section and its children */
+.seccion {
+    display: flex;            /* Enables flexbox layout */
+    justify-content: space-around; /* Adds spacing between the items */
+    align-items: center;      /* Vertically aligns items in the center */
+    margin: 20px;
+    padding: 20px;
+}
+
+.div-imagenes {
+    width: 45%;   
+    height: 500px;            /* Adjust width to make them fit side by side */
+    text-align: center;        /* Centers the content inside the div */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for distinction */
+    background-image: url(./../../assets/ver-anillos.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.div-imagenes1 {
+    width: 45%;   
+    height: 500px;            /* Adjust width to make them fit side by side */
+    text-align: center;        /* Centers the content inside the div */
+    padding: 20px;
+    background-color: #f9f9f9;
+    background-image: url(./../../assets/ver-aros.png);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    /* Light background for distinction */
+}
+
+
