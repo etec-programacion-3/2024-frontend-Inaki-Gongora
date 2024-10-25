@@ -19,7 +19,7 @@ const Header = () => {
           </Link>
         </div>
         <Link to="/" className="logo-marca" id="contenedor-titulo">
-          <p className="logo-texto">ZEPHYR®</p>
+          <p className="logo-texto">ZEPHYR</p>
         </Link>
         <div className="botones-header" id="botones-header">
           <button className="icono-buscar" id="icono-buscar">

@@ -1,18 +1,20 @@
 // src/pages/NotFound/NotFound.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
+import './NotFound.css'
 
 const NotFound = () => {
   return (
-    <div style={{ textAlign: 'center', padding: '50px' }}>
-      <h1>Zephyr</h1>
-      <h1>404 - Page Not Found</h1>
-      <p>Sorry, the page you are looking for does not exist.</p>
-      <Link to="/">
-        <button style={{ padding: '10px 20px', fontSize: '16px' }}>
-          Go to Home
-        </button>
-      </Link>
+    <div className='NotFoundFondo'>
+      <div className='BoxNotFound'>
+        <h1 className='T404'>404 - Página no encontrada</h1>
+        <p className='Texto'>Lo sentimos, la página que estás buscando no existe.</p>
+        <Link to="/">
+          <button className= 'Boton'>
+            Ir al Inicio
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

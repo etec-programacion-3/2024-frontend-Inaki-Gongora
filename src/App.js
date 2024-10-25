@@ -15,9 +15,7 @@ import Header from './components/Header.js';
 function App() {
   return (
     <Router>
-      <div className='App'>
         <Header></Header>
-        <div>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/anillos" element={<Anillos />} />
@@ -28,9 +26,7 @@ function App() {
             <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </div>
         <Footer></Footer>
-      </div>
     </Router>
   );
 }

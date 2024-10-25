@@ -27,9 +27,6 @@ body {
         "wdth" 100;
 }
 
-main {
-    margin-top: 150px;
-}
   
   
 .botones-header {
@@ -95,7 +92,6 @@ main {
 }
 
 html, body {
-    height: 100%;
     margin: 0;
 }
 
@@ -125,11 +121,9 @@ hr {
 .carrito-container, .resumen-container, .detalles-container{
     font-size: 15px;
     font-weight: bold;
-    margin-top: 80px;
     background-color: #fff;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column; 
     align-items: center; 
