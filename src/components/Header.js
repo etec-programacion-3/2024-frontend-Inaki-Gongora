@@ -14,7 +14,7 @@ const Header = () => {
       </head>
       <header id="header">
         <div className="div-contacto">
-          <Link to="/contacto" className="contacto-a">
+          <Link to="/contacto" className="contacto-link">
             <p className="contacto-texto" id="contacto-texto">CONTACTO</p>
           </Link>
         </div>

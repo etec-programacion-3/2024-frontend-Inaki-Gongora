@@ -16,15 +16,17 @@
 .div-contacto {
    flex: 1;
    margin-left: 0px;
+   width: min-content;
 }
   
 .div-contacto:hover {
     transform: none;
     color: inherit;
 }
-.contacto-a {
+.contacto-link {
     text-decoration: none;
     color: white;
+    width: 300px;
 }
   
 .contacto-texto {
@@ -34,6 +36,7 @@
     text-align: left;
     margin-left: 40px;
     color: black;
+    width: fit-content;
 }
 
 .logo-marca {
