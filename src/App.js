@@ -10,6 +10,7 @@ import Login from './pages/Usuario/Login';
 import Registro from './pages/Usuario/Registro';
 import NotFound from './pages/NotFound/NotFound';
 import ProductoDetalle from './pages/ProductoDetalle/ProductoDetalle';
+import Contacto from './pages/Contacto/Contacto.jsx';
 import Footer from './components/layout/Footer';
 import Header from './components/Header.js';
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
             <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
+            <Route path="/contacto" element={<Contacto />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         <Footer></Footer>
