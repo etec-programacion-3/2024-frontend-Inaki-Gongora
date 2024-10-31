@@ -3,8 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import './Registro.css';
 
 const Registro = () => {
+  const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
+  const [telefono, setTelefono] = useState('');
+  const [direccion, setDireccion] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,8 +23,12 @@ const Registro = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Nombre:', nombre);
     console.log('Email:', email);
+    console.log('Teléfono:', telefono);
+    console.log('Dirección:', direccion);
     console.log('Password:', password);
+    console.log('Confirm Password:', confirmPassword);
   };
 
   const handleLoginRedirect = () => {
@@ -37,8 +45,8 @@ const Registro = () => {
             <input
               type="text"
               id="nombre"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -65,8 +73,8 @@ const Registro = () => {
               <input
                 type="password"
                 id="repetir-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
           </section>
@@ -75,8 +83,8 @@ const Registro = () => {
             <input
               type="tel"
               id="telefono"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
             />
           </div>
           <div className="form-group">
@@ -84,8 +92,8 @@ const Registro = () => {
             <input
               type="text"
               id="direccion"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={direccion}
+              onChange={(e) => setDireccion(e.target.value)}
             />
           </div>
           <button type="submit" className="create-button">
