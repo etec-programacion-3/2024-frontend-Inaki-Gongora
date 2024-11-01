@@ -1,0 +1,56 @@
+/* src/pages/Anillos/Anillos.css */
+
+.anillos-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .anillos-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .anillos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .producto-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .producto-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .producto-imagen {
+    width: 100%;
+    height: auto;
+  }
+  
+  .producto-nombre {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .producto-descripcion {
+    font-size: 1rem;
+    color: #666;
+    padding: 0 15px;
+    margin-bottom: 10px;
+  }
+  
+  .producto-precio {
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
