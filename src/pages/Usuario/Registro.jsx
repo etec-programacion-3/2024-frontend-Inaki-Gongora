@@ -33,6 +33,19 @@ const Registro = () => {
       return;
     }
 
+    // Verificar si el email ya está en uso
+  try {
+    const response = await fetch(`http://localhost:3000/api/usuarios/check-email?email=${email}`);
+    if (!response.ok) {
+      const data = await response.json();
+      setError(data.message); // Mostrar mensaje de error si el email ya está en uso
+      return;
+    }
+  } catch (error) {
+    setError('Error al verificar el email. Intenta nuevamente.');
+    return;
+  }
+
     const userData = {
       nombre,
       email,
