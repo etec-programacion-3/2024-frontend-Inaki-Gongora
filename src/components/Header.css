@@ -2,6 +2,8 @@
 *{
     margin: 0;
     padding: 0;
+    text-decoration: none;
+
 }
 #header {
     display: flex;
@@ -10,7 +12,8 @@
     border-bottom: 1px solid #000000;
     background-color: rgba(181, 181, 181, 0.862);
     height: 100px;
-    width: 100%
+    width: 100%;
+    text-decoration: none;
 }
   
 .div-contacto {

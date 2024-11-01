@@ -57,7 +57,8 @@
     flex-direction: column;    /* Stack children vertically */
     justify-content: flex-end; /* Align children to the bottom */
     margin-bottom: 30px;       /* Add spacing below the div */
-    transition: transform 0.3s; /* Smooth transition for hover effect */
+    transition: transform 0.3s;
+    text-decoration: none /* Smooth transition for hover effect */
 }
 
 .div-imagenes:hover {
@@ -78,7 +79,8 @@
     flex-direction: column;    /* Stack children vertically */
     justify-content: flex-end; /* Align children to the bottom */
     margin-bottom: 30px;       /* Add spacing below the div */
-    transition: transform 0.3s; /* Smooth transition for hover effect */
+    transition: transform 0.3s;
+    text-decoration: none; /* Smooth transition for hover effect */
 }
 
 .div-imagenes1:hover {

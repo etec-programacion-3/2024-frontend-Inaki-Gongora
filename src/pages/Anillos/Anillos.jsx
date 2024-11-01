@@ -1,6 +1,7 @@
 // src/pages/Anillos/Anillos.jsx
 import React from 'react';
 import './Anillos.css';
+import fotito from "../../assets/foto-producto2.png"
 
 const Anillos = () => {
   const productos = [
@@ -9,7 +10,7 @@ const Anillos = () => {
       nombre: 'Anillo de Plata',
       descripcion: 'Elegante anillo de plata con diseño minimalista.',
       precio: 25.99,
-      imagen: './../../src/assets/anillo1.' // Ruta de ejemplo
+      imagen: {fotito}
     },
     {
       id: 2,
@@ -75,7 +76,7 @@ const Anillos = () => {
       <div className="anillos-grid">
         {productos.map(producto => (
           <div className="producto-card" key={producto.id}>
-            <img src={producto.imagen} alt={producto.nombre} className="producto-imagen" />
+            <img src={fotito} alt={producto.nombre} className="producto-imagen" />
             <h2 className="producto-nombre">{producto.nombre}</h2>
             <p className="producto-descripcion">{producto.descripcion}</p>
             <p className="producto-precio">${producto.precio.toFixed(2)}</p>

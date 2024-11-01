@@ -18,9 +18,9 @@ const Home = () => {
           <Link to="/anillos" className="div-imagenes">
             <h1>Anillos</h1>
           </Link>
-          <div className="div-imagenes1">
+          <Link to="/aros" className="div-imagenes1">
             <h1>Aros</h1>
-          </div>
+          </Link>
         </section>
       </div>
     </div>
