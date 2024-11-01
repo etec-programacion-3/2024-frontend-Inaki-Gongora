@@ -1,5 +1,7 @@
+// src/components/Registro.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createUser } from '../../services/api'; // Importamos la función de creación de usuario
 import './Registro.css';
 
 const Registro = () => {
@@ -7,8 +9,9 @@ const Registro = () => {
   const [email, setEmail] = useState('');
   const [telefono, setTelefono] = useState('');
   const [direccion, setDireccion] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [contraseña, setContraseña] = useState(''); // Cambié de password a contraseña
+  const [confirmarContraseña, setConfirmarContraseña] = useState(''); // Cambié de confirmPassword a confirmarContraseña
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,24 +24,39 @@ const Registro = () => {
     document.head.appendChild(link);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Nombre:', nombre);
-    console.log('Email:', email);
-    console.log('Teléfono:', telefono);
-    console.log('Dirección:', direccion);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
-  };
+    setError(null);
 
-  const handleLoginRedirect = () => {
-    navigate('/Login'); // Cambia la ruta según la que hayas definido para "Iniciar sesión"
+    if (contraseña !== confirmarContraseña) {
+      setError('Las contraseñas no coinciden');
+      return;
+    }
+
+    const userData = {
+      nombre,
+      email,
+      telefono,
+      direccion,
+      contraseña, // Cambié de password a contraseña
+      rol: 'usuario', // Agregamos el rol con un valor fijo
+    };
+
+    try {
+      const response = await createUser(userData);
+      console.log('Usuario creado:', response);
+      navigate('/Login'); // Redirigir al inicio de sesión
+    } catch (error) {
+      setError('Error al crear el usuario. Intenta nuevamente.');
+      console.error('Error creando usuario:', error); // Para depuración
+    }
   };
 
   return (
     <div className="login-container">
       <div className="login-form">
         <h2 className='login-texto'>Crear cuenta</h2>
+        {error && <p className="error-message">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="nombre"><i className="fa-solid fa-user"></i> Nombre</label>
@@ -60,21 +78,21 @@ const Registro = () => {
           </div>
           <section className='seccion-contrasena'>
             <div className="form-group">
-              <label htmlFor="password"><i className="fa-solid fa-lock"></i> Contraseña</label>
+              <label htmlFor="contraseña"><i className="fa-solid fa-lock"></i> Contraseña</label>
               <input
                 type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                id="contraseña"
+                value={contraseña}
+                onChange={(e) => setContraseña(e.target.value)}
               />
             </div>
             <div className="form-group">
-              <label htmlFor="repetir-password"><i className="fa-solid fa-lock"></i> Repetir contraseña</label>
+              <label htmlFor="confirmar-contraseña"><i className="fa-solid fa-lock"></i> Repetir contraseña</label>
               <input
                 type="password"
-                id="repetir-password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                id="confirmar-contraseña"
+                value={confirmarContraseña}
+                onChange={(e) => setConfirmarContraseña(e.target.value)}
               />
             </div>
           </section>
@@ -100,7 +118,7 @@ const Registro = () => {
             <i className="fas fa-user-plus"></i> Crear cuenta
           </button>
           <p className='cuenta-preg'>¿Ya tienes cuenta?</p>
-          <button type="button" className="login-button" onClick={handleLoginRedirect}>
+          <button type="button" className="login-button" onClick={() => navigate('/Login')}>
             <i className="fa-solid fa-arrow-right"></i> Iniciar sesión
           </button>
         </form>
