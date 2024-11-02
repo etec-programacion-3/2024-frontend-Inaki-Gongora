@@ -11,25 +11,31 @@ import Registro from './pages/Usuario/Registro';
 import NotFound from './pages/NotFound/NotFound';
 import ProductoDetalle from './pages/ProductoDetalle/ProductoDetalle';
 import Contacto from './pages/Contacto/Contacto.jsx';
+import Perfil from './pages/Usuario/Perfil.jsx';
 import Footer from './components/layout/Footer';
 import Header from './components/Header.js';
+import { AuthProvider } from './context/AuthContext'; // Importamos AuthProvider
+
 function App() {
   return (
-    <Router>
-        <Header></Header>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/anillos" element={<Anillos />} />
-            <Route path="/aros" element={<Aros />} />
-            <Route path="/carrito" element={<Carrito />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/registro" element={<Registro />} />
-            <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
-            <Route path="/contacto" element={<Contacto />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        <Footer></Footer>
-    </Router>
+    <AuthProvider> {/* Envolvemos la aplicación con AuthProvider */}
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/anillos" element={<Anillos />} />
+          <Route path="/aros" element={<Aros />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Registro />} />
+          <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/perfil" element={<Perfil />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </AuthProvider>
   );
 }
 

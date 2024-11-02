@@ -23,7 +23,6 @@ export const fetchProductoById = async (id) => {
   }
 };
 
-// Función para crear un nuevo usuario
 export const createUser = async (userData) => {
   try {
     const response = await axios.post(`${API_URL}/usuarios`, userData);
@@ -31,5 +30,35 @@ export const createUser = async (userData) => {
   } catch (error) {
     console.error('Error creating user:', error);
     throw error;
+  }
+};
+
+// Función para iniciar sesión
+export const loginUser = async (email, password) => {
+  try {
+    const response = await axios.post(`${API_URL}/login`, { email, password });
+    return response.data; // Devuelve los datos del usuario o un token
+  } catch (error) {
+    console.error('Error logging in:', error);
+    throw error; // Lanza el error para que pueda ser manejado en el componente
+  }
+};
+
+// Función para obtener el perfil del usuario
+export const fetchUserProfile = async (token) => {
+  if (!token) {
+    throw new Error('Token no proporcionado');
+  }
+
+  try {
+    const response = await axios.get(`${API_URL}/usuarios/perfil`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data; // Devuelve solo los datos necesarios
+  } catch (error) {
+    console.error('Error fetching user profile:', error.response ? error.response.data : error.message);
+    throw error; // Lanza el error para que pueda ser manejado en el componente
   }
 };

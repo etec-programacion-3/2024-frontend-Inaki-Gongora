@@ -1,10 +1,17 @@
+// src/pages/Usuario/Login.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Asegúrate de tener axios instalado
+import { useAuth } from '../../context/AuthContext';
 import './Login.css';
+
+const API_URL = 'http://localhost:3000/api/usuarios/'; // Cambia esto según la URL de tu backend
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,10 +24,22 @@ const Login = () => {
     document.head.appendChild(link);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
+    setErrorMessage(''); // Resetea el mensaje de error
+    try {
+      const response = await axios.post(`${API_URL}login`, { email, contraseña: password });
+      
+      if (response.data.token) {
+        login(response.data.token); // Llama a login del contexto con el token real
+        navigate('/perfil'); // Redirige al perfil después del inicio de sesión
+      } else {
+        setErrorMessage('Email o contraseña incorrectos.');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      setErrorMessage('Ocurrió un error al intentar iniciar sesión.'); // Manejo de errores
+    }
   };
 
   const handleCreateAccount = () => {
@@ -31,6 +50,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-form">
         <h2 className='login-texto'>Iniciar Sesión</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Mensaje de error */}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email"> <i className="fa-solid fa-user"></i> Email</label>
@@ -40,6 +60,7 @@ const Login = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="form-group">
@@ -49,6 +70,7 @@ const Login = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
           <button type="submit" className="login-button">
