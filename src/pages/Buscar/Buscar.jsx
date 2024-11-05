@@ -13,6 +13,7 @@ const Buscar = () => {
 
   const handleBuscar = async () => {
     setHaBuscado(true); // Indicar que se realizó una búsqueda
+    setResultados([]); // Reiniciar resultados antes de buscar
     try {
       const resultadosBusqueda = await buscarProductos(nombreProducto, precioRango[0], precioRango[1]);
       setResultados(resultadosBusqueda);
