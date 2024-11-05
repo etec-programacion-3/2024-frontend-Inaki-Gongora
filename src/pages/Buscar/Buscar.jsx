@@ -9,8 +9,10 @@ const Buscar = () => {
   const [nombreProducto, setNombreProducto] = useState('');
   const [precioRango, setPrecioRango] = useState([0, 5000]);
   const [resultados, setResultados] = useState([]);
+  const [haBuscado, setHaBuscado] = useState(false);
 
   const handleBuscar = async () => {
+    setHaBuscado(true); // Indicar que se realizó una búsqueda
     try {
       const resultadosBusqueda = await buscarProductos(nombreProducto, precioRango[0], precioRango[1]);
       setResultados(resultadosBusqueda);
@@ -59,7 +61,9 @@ const Buscar = () => {
       <button className="buscar-button" onClick={handleBuscar}>Buscar</button>
       
       <div className="resultados-busqueda">
-        {resultados.length > 0 ? (
+        {haBuscado && resultados.length === 0 ? (
+          <p>No se encontraron productos</p>
+        ) : (
           resultados.map((producto) => (
             <div key={producto.id} className="producto-card">
               <h2>{producto.nombre}</h2>
@@ -67,8 +71,6 @@ const Buscar = () => {
               <p>{producto.descripcion}</p>
             </div>
           ))
-        ) : (
-          <p>No se encontraron productos</p>
         )}
       </div>
     </div>

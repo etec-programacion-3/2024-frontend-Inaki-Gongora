@@ -65,7 +65,7 @@ export const fetchUserProfile = async (token) => {
 
 export const buscarProductos = async (nombre, minPrecio, maxPrecio) => {
   try {
-    const response = await axios.get(`/api/productos`, {
+    const response = await axios.get(`http://localhost:3000/api/productos`, {
       params: { nombre, minPrecio, maxPrecio }
     });
     return response.data;
