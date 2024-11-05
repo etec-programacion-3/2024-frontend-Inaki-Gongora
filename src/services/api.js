@@ -62,3 +62,14 @@ export const fetchUserProfile = async (token) => {
     throw error; // Lanza el error para que pueda ser manejado en el componente
   }
 };
+
+export const buscarProductos = async (nombre, minPrecio, maxPrecio) => {
+  try {
+    const response = await axios.get(`/api/productos`, {
+      params: { nombre, minPrecio, maxPrecio }
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Error desconocido');
+  }
+};

@@ -1,54 +1,74 @@
 // src/pages/Buscar.jsx
 import React, { useState } from 'react';
-import axios from 'axios';
+import { buscarProductos } from '../../services/api';
+import 'rc-slider/assets/index.css';
+import Slider from 'rc-slider';
 import './Buscar.css';
 
-const API_URL = 'http://localhost:3000/api/productos'; // Asegúrate de ajustar esta URL según tu backend
-
 const Buscar = () => {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const [error, setError] = useState(null);
+  const [nombreProducto, setNombreProducto] = useState('');
+  const [precioRango, setPrecioRango] = useState([0, 5000]);
+  const [resultados, setResultados] = useState([]);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    setError(null); // Resetea el mensaje de error
-
+  const handleBuscar = async () => {
     try {
-      const response = await axios.get(`${API_URL}?q=${query}`);
-      setResults(response.data); // Asigna los resultados de búsqueda
-    } catch (err) {
-      setError('Error al realizar la búsqueda. Intenta nuevamente.');
+      const resultadosBusqueda = await buscarProductos(nombreProducto, precioRango[0], precioRango[1]);
+      setResultados(resultadosBusqueda);
+    } catch (error) {
+      console.error('Error al buscar productos:', error);
     }
+  };
+
+  const handleSliderChange = (value) => {
+    setPrecioRango(value);
   };
 
   return (
     <div className="buscar-container">
       <h1>Buscar Productos</h1>
-      <form onSubmit={handleSearch} className="buscar-form">
+      <div className="buscar-form">
         <input
           type="text"
-          placeholder="Nombre del producto..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          required
+          placeholder="Nombre del producto"
+          value={nombreProducto}
+          onChange={(e) => setNombreProducto(e.target.value)}
         />
-        <button className='botonBuscar' type="submit">Buscar</button>
-      </form>
+      </div>
+      
+      <div className="filtro-precio">
+        <label>Rango de precios:</label>
+        <Slider
+          range
+          min={0}
+          max={5000}
+          value={precioRango}
+          onChange={handleSliderChange}
+          allowCross={false}
+          trackStyle={[{ backgroundColor: '#007acc' }]}
+          handleStyle={[
+            { borderColor: '#007acc', backgroundColor: '#007acc' },
+            { borderColor: '#007acc', backgroundColor: '#007acc' },
+          ]}
+        />
+        <div className="precio-valores">
+          <span>Min: ${precioRango[0]}</span>
+          <span>Max: ${precioRango[1]}</span>
+        </div>
+      </div>
 
-      {error && <p className="buscar-error">{error}</p>}
+      <button className="buscar-button" onClick={handleBuscar}>Buscar</button>
       
       <div className="resultados-busqueda">
-        {results.length > 0 ? (
-          results.map((producto) => (
+        {resultados.length > 0 ? (
+          resultados.map((producto) => (
             <div key={producto.id} className="producto-card">
-              <h3>{producto.nombre}</h3>
-              <p>{producto.descripcion}</p>
+              <h2>{producto.nombre}</h2>
               <p>Precio: ${producto.precio}</p>
+              <p>{producto.descripcion}</p>
             </div>
           ))
         ) : (
-          query && <p>No se encontraron resultados.</p>
+          <p>No se encontraron productos</p>
         )}
       </div>
     </div>
