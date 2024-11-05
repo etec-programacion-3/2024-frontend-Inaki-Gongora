@@ -1,20 +1,22 @@
+// src/pages/Usuario/Perfil.jsx
 import React, { useEffect, useState } from 'react';
 import { fetchUserProfile } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext'; // Asegúrate de importar el contexto
+import { useAuth } from '../../context/AuthContext';
+import './Perfil.css';
 
 const Perfil = () => {
   const [userInfo, setUserInfo] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { logout } = useAuth(); // Acceder a la función de logout
+  const { logout } = useAuth();
 
   useEffect(() => {
     const fetchPerfil = async () => {
       try {
         const token = localStorage.getItem('token');
         if (!token) {
-          navigate('/login'); // Redirigir si no hay token
+          navigate('/login');
           return;
         }
         
@@ -30,24 +32,28 @@ const Perfil = () => {
   }, [navigate]);
 
   const handleLogout = () => {
-    logout(); // Usar la función de logout del contexto
+    logout();
     navigate('/login');
   };
 
   return (
-    <div>
+    <div className="perfil-container">
       {error ? (
-        <p>Error: {error}</p>
+        <p className="error-message">Error: {error}</p>
       ) : userInfo ? (
         <div>
-          <h1>Perfil</h1>
-          <p>Nombre: {userInfo.nombre}</p>
-          <p>Teléfono: {userInfo.telefono}</p>
-          <p>Dirección: {userInfo.direccion}</p>
-          <button onClick={handleLogout}>Cerrar Sesión</button>
+          <div className="perfil-header">
+            <h1>Perfil</h1>
+          </div>
+          <div className="perfil-info">
+            <p>Nombre: {userInfo.nombre}</p>
+            <p>Teléfono: {userInfo.telefono}</p>
+            <p>Dirección: {userInfo.direccion}</p>
+          </div>
+          <button onClick={handleLogout} className="perfil-button">Cerrar Sesión</button>
         </div>
       ) : (
-        <p>Cargando...</p>
+        <p className="loading-message">Cargando...</p>
       )}
     </div>
   );

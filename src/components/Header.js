@@ -9,7 +9,7 @@ import './Header.css';
 import { useAuth } from '../context/AuthContext';
 
 const Header = () => {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   const handleAuthNavigation = () => {
@@ -18,11 +18,6 @@ const Header = () => {
     } else {
       navigate('/login');
     }
-  };
-
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
   };
 
   return (
@@ -52,12 +47,6 @@ const Header = () => {
         <button onClick={handleAuthNavigation} className="icono-usuario" id="icono-usuario">
           <img src={User} alt="usuario" />
         </button>
-
-        {isLoggedIn && (
-          <button onClick={handleLogout} className="icono-logout" id="icono-logout">
-            Cerrar Sesión
-          </button>
-        )}
 
         <button className="icono-menu" id="icono-menu">
           <img src={Menu} alt="menu" />
