@@ -35,9 +35,9 @@ const Header = () => {
       </Link>
 
       <div className="botones-header" id="botones-header">
-        <button className="icono-buscar" id="icono-buscar">
+        <Link to="/buscar" className="icono-buscar" id="icono-buscar">
           <img src={ImagenBuscar} alt="buscar" id="lupa-buscar" />
-        </button>
+        </Link>
 
         <Link to="/carrito" className="icono-carro" id="icono-carro">
           <img src={Carro} alt="carro" />

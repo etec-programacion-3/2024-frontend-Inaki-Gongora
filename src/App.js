@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound/NotFound';
 import ProductoDetalle from './pages/ProductoDetalle/ProductoDetalle';
 import Contacto from './pages/Contacto/Contacto.jsx';
 import Perfil from './pages/Usuario/Perfil.jsx';
+import Buscar from './pages/Buscar/Buscar.jsx';
 import Footer from './components/layout/Footer';
 import Header from './components/Header.js';
 import { AuthProvider } from './context/AuthContext'; // Importamos AuthProvider
@@ -31,6 +32,7 @@ function App() {
           <Route path="/producto/:nombreProducto" element={<ProductoDetalle />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/perfil" element={<Perfil />} />
+          <Route path="/buscar" element={<Buscar />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
