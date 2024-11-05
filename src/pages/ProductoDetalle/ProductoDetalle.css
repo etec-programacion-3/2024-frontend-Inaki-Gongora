@@ -1,0 +1,19 @@
+/* src/pages/ProductoDetalle/ProductoDetalle.css */
+.producto-detalle-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.producto-detalle-container h1 {
+  color: #333;
+}
+
+.producto-detalle-container p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
