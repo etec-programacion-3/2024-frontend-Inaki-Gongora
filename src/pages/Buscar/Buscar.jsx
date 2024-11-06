@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { buscarProductos } from '../../services/api';
 import 'rc-slider/assets/index.css';
 import Slider from 'rc-slider';
+import { useNavigate } from 'react-router-dom';
 import './Buscar.css';
 
 const Buscar = () => {
@@ -10,13 +11,17 @@ const Buscar = () => {
   const [precioRango, setPrecioRango] = useState([0, 5000]);
   const [resultados, setResultados] = useState([]);
   const [haBuscado, setHaBuscado] = useState(false);
+  const navigate = useNavigate();
 
   const handleBuscar = async () => {
-    setHaBuscado(true); // Indicar que se realizó una búsqueda
-    setResultados([]); // Reiniciar resultados antes de buscar
+    // Limpiar los resultados y establecer que se ha buscado antes de realizar una nueva búsqueda
+    setResultados([]);
+    setHaBuscado(false);
+
     try {
       const resultadosBusqueda = await buscarProductos(nombreProducto, precioRango[0], precioRango[1]);
       setResultados(resultadosBusqueda);
+      setHaBuscado(true); // Indicar que la búsqueda se ha realizado y mostrar resultados
     } catch (error) {
       console.error('Error al buscar productos:', error);
     }
@@ -24,6 +29,10 @@ const Buscar = () => {
 
   const handleSliderChange = (value) => {
     setPrecioRango(value);
+  };
+
+  const handleProductoClick = (id) => {
+    navigate(`/producto/${id}`);
   };
 
   return (
@@ -66,7 +75,7 @@ const Buscar = () => {
           <p>No se encontraron productos</p>
         ) : (
           resultados.map((producto) => (
-            <div key={producto.id} className="producto-card">
+            <div key={producto.id} className="producto-card" onClick={() => handleProductoClick(producto.id)}>
               <h2>{producto.nombre}</h2>
               <p>Precio: ${producto.precio}</p>
               <p>{producto.descripcion}</p>
