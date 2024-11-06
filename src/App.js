@@ -15,27 +15,31 @@ import Perfil from './pages/Usuario/Perfil.jsx';
 import Buscar from './pages/Buscar/Buscar.jsx';
 import Footer from './components/layout/Footer';
 import Header from './components/Header.js';
-import { AuthProvider } from './context/AuthContext'; // Importamos AuthProvider
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-    <AuthProvider> {/* Envolvemos la aplicación con AuthProvider */}
+    <AuthProvider>
       <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/anillos" element={<Anillos />} />
-          <Route path="/aros" element={<Aros />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registro" element={<Registro />} />
-          <Route path="/producto/:id" element={<ProductoDetalle />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/perfil" element={<Perfil />} />
-          <Route path="/buscar" element={<Buscar />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
+        <div className="app-container">
+          <Header />
+          <main className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/anillos" element={<Anillos />} />
+              <Route path="/aros" element={<Aros />} />
+              <Route path="/carrito" element={<Carrito />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/registro" element={<Registro />} />
+              <Route path="/producto/:id" element={<ProductoDetalle />} />
+              <Route path="/contacto" element={<Contacto />} />
+              <Route path="/perfil" element={<Perfil />} />
+              <Route path="/buscar" element={<Buscar />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </Router>
     </AuthProvider>
   );

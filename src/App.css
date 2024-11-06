@@ -82,12 +82,19 @@ main {
   padding: 20px; /* Puedes ajustar según el diseño */
 }
 
-/* Estilos para el footer */
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+.content {
+  flex: 1; /* Expande el contenido para empujar el footer hacia el final */
+}
 
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
