@@ -30,11 +30,8 @@ const Header = () => {
     <header id="header">
       <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
 
-      <div className="div-contacto">
-        <Link to="/contacto" className="contacto-link">
-          <p className="contacto-texto" id="contacto-texto">CONTACTO</p>
-        </Link>
-      </div>
+      
+    
 
       <Link to="/" className="logo-marca" id="contenedor-titulo">
         <p className="logo-texto">ZEPHYR</p>

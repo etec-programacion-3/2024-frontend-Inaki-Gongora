@@ -1,40 +1,56 @@
-/* Header.css */
-*{
+/* Añadir fuente en los estilos */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General reset */
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
-
 }
+
+/* Estilos del header */
 #header {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #000000;
-    background-color: rgba(181, 181, 181, 0.862);
+    background-color: rgb(255, 255, 255);
     height: 100px;
     width: 100%;
     text-decoration: none;
+    opacity: 0.9;
+    z-index: 1000;
 }
-  
+
+/* Agrega un margen superior al contenido para que no quede debajo del header */
+body {
+    margin-top: 100px;
+}
+
+/* Cambia la fuente de div-contacto y sus hijos */
 .div-contacto {
-   flex: 1;
-   margin-left: 0px;
-   width: min-content;
+    flex: 1;
+    margin-left: 0px;
+    width: min-content;
+    font-family: 'Roboto', sans-serif; /* Nueva fuente */
 }
-  
-.div-contacto:hover {
-    transform: none;
-    color: inherit;
-}
+
+/* Cambia la fuente de contacto-link */
 .contacto-link {
     text-decoration: none;
     color: white;
     width: 300px;
+    font-family: 'Roboto', sans-serif; /* Nueva fuente */
 }
-  
+
+/* Cambia la fuente de contacto-texto */
 .contacto-texto {
-    font-family: 'sans-serif';
-    font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; /* Nueva fuente */
+    font-size: 14px;
     font-weight: bold;
     text-align: left;
     margin-left: 40px;
@@ -42,14 +58,15 @@
     width: fit-content;
 }
 
+/* Otros estilos */
 .logo-marca {
     flex: 1;
-    text-align: center;
+    text-align: left;
+    margin-left: 50px;
 }
 
 .logo-marca:visited {
     color: rgba(181, 181, 181, 0.862);
-    
 }
 
 .logo-texto {
@@ -63,21 +80,32 @@
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    gap: 15px;;
+    gap: 15px;
+    margin-left: 900px;
 }
   
-.icono-buscar,
-.icono-carro,
-.icono-usuario,
-.icono-menu {
+.icono-buscar, .icono-carro, .icono-usuario, .icono-menu {
     background: none;
     border: none;
     cursor: pointer;
 }
   
-.icono-buscar img,
-.icono-carro img,
-.icono-usuario img,
-.icono-menu img {
+.icono-buscar img {
+    width: 70px;
+    margin: 0;
+}
+
+.icono-carro img {
     width: 80px;
+    margin: 0;
+}
+
+.icono-usuario img {
+    width: 100px;
+    margin: 0;
+}
+
+.icono-menu img {
+    width: 90px;
+    margin: 0;
 }

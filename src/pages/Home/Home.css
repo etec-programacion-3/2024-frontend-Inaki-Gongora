@@ -15,7 +15,7 @@
 
 .Imagen-fondo {
     width: 100%;
-    height: 600px;
+    height: 1000px;
     text-align: center;
     background-image: url(./../../assets/fondo-landing-copia.png);
     background-size: cover;
@@ -45,7 +45,7 @@
     font-variation-settings:
       "width" 100;
     width: 45%;   
-    height: 500px; 
+    height: 800px; 
     text-align: center; 
     padding: 20px;
     background-color: #f9f9f9; 
@@ -67,7 +67,7 @@
 
 .div-imagenes1 {
     width: 45%;   
-    height: 500px; 
+    height: 800px; 
     text-align: center; 
     padding: 20px;
     background-color: #f9f9f9; 
@@ -87,11 +87,40 @@
     transform: scale(1.01);    /* Slightly enlarge the div on hover */
 }
 
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToBottom {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
 .Nueva-Coleccion {
-    color: rgb(233, 233, 233);
-    opacity: 0.9;
-    font-size: 20px;
-    font-weight: 400;
-    font-style: italic;
-    font-weight: 600;
+    color: rgb(0, 0, 0);
+    opacity: 1; /* Texto visible desde el inicio */
+    font-size: 220px;
+    font-family: 'Abril Fatface';
+
+}
+
+.Nueva-Coleccion.show {
+    animation: slideInFromBottom 1s forwards;
+}
+
+.Nueva-Coleccion.hide {
+    animation: slideOutToBottom 1s forwards;
 }
