@@ -1,4 +1,3 @@
-// src/pages/ProductoDetalle/ProductoDetalle.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchProductoById } from '../../services/api';
@@ -12,23 +11,26 @@ const ProductoDetalle = () => {
     const getProducto = async () => {
       try {
         const data = await fetchProductoById(id);
+        console.log('Producto:', data); // Verifica el contenido de data
         setProducto(data);
       } catch (error) {
         console.error('Error loading producto:', error);
       }
     };
-
+  
     getProducto();
   }, [id]);
 
   if (!producto) return <p>Loading...</p>;
 
+  // Verificar que producto.imagenUrl exista
+  const imagenUrlCompleta = producto.imagen ? `http://localhost:3001${producto.imagen}` : '/images/imagen-predeterminada.jpg';
   return (
     <div className="cuerpo">
       <div className="contenedor-grande">
         <div className="foto-producto">
           <div className="contenedor">
-            <img className="imagen-producto" src={producto.imagenUrl} alt={producto.nombre} />
+            <img className="imagen-producto" src={imagenUrlCompleta} alt={producto.nombre} />
           </div>
         </div>
 
