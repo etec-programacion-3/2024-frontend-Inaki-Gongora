@@ -127,7 +127,8 @@
     color: rgb(255, 255, 255);
     font-size: 80px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-shadow: 5px 5px 5px rgba(50, 50, 50, 0.474); /* Sombra */
+    text-shadow: 3px 3px 3px rgba(50, 50, 50, 0.474); /* Sombra */
+    font-weight: 400;
 }
 
 
@@ -137,4 +138,9 @@
 
 .Nueva-Coleccion.hide {
     animation: slideOutToBottom 1s forwards;
+}
+
+.ArosAnillos {
+    font-size: 50px;
+    font-weight: 300;
 }

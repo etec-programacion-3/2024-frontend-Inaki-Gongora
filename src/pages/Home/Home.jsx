@@ -15,16 +15,16 @@ const Home = () => {
         <div className="Imagen-fondo">
           <div>
             <p className="Nueva-Coleccion">ZEPHYR</p>
-            <p className="Sigman">Nueva coleccion 2024</p>
+            <p className="Sigman">Nueva colección 2024</p>
           </div>
         </div>
 
         <section className="seccion">
           <Link to="/anillos" className="div-imagenes">
-            <h1>Anillos</h1>
+            <h1 className='ArosAnillos'>Anillos</h1>
           </Link>
           <Link to="/aros" className="div-imagenes1">
-            <h1>Aros</h1>
+            <h1 className='ArosAnillos'>Aros</h1>
           </Link>
         </section>
       </div>
