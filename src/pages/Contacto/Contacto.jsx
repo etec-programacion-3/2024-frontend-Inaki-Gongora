@@ -1,16 +1,8 @@
 // src/pages/Contacto/Contacto.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import './Contacto.css';
 
 const Contacto = () => {
-  const [nombre, setNombre] = useState('');
-  const [email, setEmail] = useState('');
-  const [mensaje, setMensaje] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Mensaje enviado:', { nombre, email, mensaje });
-  };
 
   return (
     <div className="contacto-container">

@@ -1,5 +1,5 @@
 // src/components/Header.js
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ImagenBuscar from "../assets/buscar.png";
 import Carro from "../assets/carro.png";
@@ -13,7 +13,7 @@ const Header = () => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
+  const [showLogo] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
