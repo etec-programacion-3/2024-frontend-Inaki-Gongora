@@ -1,5 +1,5 @@
 // src/components/Header.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ImagenBuscar from "../assets/buscar.png";
 import Carro from "../assets/carro.png";
@@ -13,6 +13,7 @@ const Header = () => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -26,14 +27,14 @@ const Header = () => {
     }
   };
 
+  // Manejador de desplazamiento para mostrar el logo al hacer scroll
+
   return (
     <header id="header">
       <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
 
-      
-    
-
-      <Link to="/" className="logo-marca" id="contenedor-titulo">
+      {/* Solo muestra el logo cuando showLogo es true */}
+      <Link to="/" className={`logo-marca ${showLogo ? "visible" : "oculto"}`} id="contenedor-titulo">
         <p className="logo-texto">ZEPHYR</p>
       </Link>
 
@@ -50,13 +51,11 @@ const Header = () => {
           <img src={User} alt="usuario" />
         </button>
 
-        {/* Botón para abrir el menú desplegable */}
         <button onClick={toggleSidebar} className="icono-menu" id="icono-menu">
           <img src={Menu} alt="menu" />
         </button>
       </div>
 
-      {/* Sidebar para el menú desplegable */}
       <Sidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />
     </header>
   );

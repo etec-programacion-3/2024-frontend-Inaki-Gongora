@@ -76,12 +76,6 @@ html, body { /* Asegura que el body y el html ocupen toda la ventana */
   text-decoration: underline;
 }
 
-/* Estilos para el main */
-main {
-  flex: 1; /* Se expande para ocupar el espacio disponible entre el navbar y el footer */
-  padding: 20px; /* Puedes ajustar según el diseño */
-}
-
 .app-container {
   display: flex;
   flex-direction: column;

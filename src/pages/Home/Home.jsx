@@ -13,7 +13,10 @@ const Home = () => {
       </head>
       <div>
         <div className="Imagen-fondo">
-          <p className="Nueva-Coleccion">ZEPHYR</p>
+          <div>
+            <p className="Nueva-Coleccion">ZEPHYR</p>
+            <p className="Sigman">Nueva coleccion 2024</p>
+          </div>
         </div>
 
         <section className="seccion">

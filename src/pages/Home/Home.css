@@ -1,3 +1,9 @@
+/* Agrega este estilo al elemento principal de la página */
+#contenido-principal {
+    margin-top: 0px; /* Ajusta la distancia de desplazamiento */
+}
+
+
 .abril-fatface-regular {
     font-family: "Abril Fatface", serif;
     font-weight: lighter;
@@ -15,7 +21,7 @@
 
 .Imagen-fondo {
     width: 100%;
-    height: 1000px;
+    height: 600px;
     text-align: center;
     background-image: url(./../../assets/fondo-landing-copia.png);
     background-size: cover;
@@ -111,11 +117,19 @@
 
 .Nueva-Coleccion {
     color: rgb(0, 0, 0);
-    opacity: 1; /* Texto visible desde el inicio */
+    opacity: 0.86; /* Texto visible desde el inicio */
     font-size: 220px;
     font-family: 'Abril Fatface';
-
+    margin-bottom: 0;
 }
+
+.Sigman {
+    color: rgb(255, 255, 255);
+    font-size: 80px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 5px 5px 5px rgba(50, 50, 50, 0.474); /* Sombra */
+}
+
 
 .Nueva-Coleccion.show {
     animation: slideInFromBottom 1s forwards;
