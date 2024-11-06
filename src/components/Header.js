@@ -1,5 +1,5 @@
 // src/components/Header.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ImagenBuscar from "../assets/buscar.png";
 import Carro from "../assets/carro.png";
@@ -7,10 +7,16 @@ import User from "../assets/user.png";
 import Menu from "../assets/menu.png";
 import './Header.css';
 import { useAuth } from '../context/AuthContext';
+import Sidebar from './Sidebar';
 
 const Header = () => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   const handleAuthNavigation = () => {
     if (isLoggedIn) {
@@ -43,15 +49,18 @@ const Header = () => {
           <img src={Carro} alt="carro" />
         </Link>
 
-        {/* Navega al perfil o login según el estado de autenticación */}
         <button onClick={handleAuthNavigation} className="icono-usuario" id="icono-usuario">
           <img src={User} alt="usuario" />
         </button>
 
-        <button className="icono-menu" id="icono-menu">
+        {/* Botón para abrir el menú desplegable */}
+        <button onClick={toggleSidebar} className="icono-menu" id="icono-menu">
           <img src={Menu} alt="menu" />
         </button>
       </div>
+
+      {/* Sidebar para el menú desplegable */}
+      <Sidebar isOpen={isSidebarOpen} closeSidebar={toggleSidebar} />
     </header>
   );
 };
