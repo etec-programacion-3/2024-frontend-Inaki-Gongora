@@ -1,78 +1,67 @@
-
-.cuerpo{
+.cuerpo {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 100px;
-
-
 }
 
 .contenedor-grande {
   display: flex;
   margin: 0;
   justify-content: center;
-  align-items: center; /* Alinea verticalmente */
+  align-items: flex-start; /* Alinea los elementos en la parte superior */
   width: max-content;
-  height: min-content;
   max-width: 1800px;
   padding: 14px;
   margin: 20px;
   background-color: transparent;
-  
 }
 
-
 .imagen-producto {
-  width: 400px;
   padding: 50px;
 }
 
-
-.subtitle{
-  font-size: 22px;
-}
-
-.foto-producto{
+.foto-producto {
   margin-right: 5px;
+  display: flex;
   align-items: center;
-  width: max-content;
-
+  justify-content: center;
 }
 
-.foto-principal{
+.foto-principal {
   align-items: center;
   display: flex;
   width: 200px;
 }
 
-.ul1{
+.ul1 {
   display: flex;
   justify-content: space-between;
   list-style: none;
 }
 
-.info-producto{
+.info-producto {
   text-align: left;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.subtitulo{
+.subtitulo {
   font-size: 18px;
 }
 
-.imagen{
+.imagen {
   margin-left: 78px;
 }
 
-.pago{
+.pago {
   margin-top: 14px;
   color: rgb(2, 30, 101);
-
-  
 }
 
-.talles{
+.talles {
   display: flex;
   width: 80%;
   flex-wrap: wrap;
@@ -81,7 +70,7 @@
 
 .div-talles {
   border: 2px solid #005f99;
-  width: 110px; /* Limita el ancho del div de talles */
+  width: 110px;
   margin: 5px;
   padding: 10px;
   font-size: 13px;
@@ -96,7 +85,7 @@
 }
 
 .compra-container {
-  width: 80%; /* Ajusta el contenedor al ancho necesario */
+  width: 80%;
   margin-bottom: 15px;
 }
 
@@ -110,7 +99,7 @@
   font-weight: 600;
   border: none;
   transition: 0.5s;
-  padding: 10px 0; /* Ajusta el padding si es necesario */
+  padding: 10px 0;
 }
 
 .compra:hover {
@@ -118,28 +107,61 @@
   background-color: #005f99;
 }
 
-
-
-.zapas-descrip-titulo{
+.zapas-descrip-titulo {
   font-size: 18px;
   color: rgb(98, 93, 93);
 }
 
-
-
-.info-zapatillas{
+.info-zapatillas {
   width: 80%;
   margin-top: 3px;
   font-size: 14px;
   color: rgb(189, 183, 183);
 }
 
-.li-img{
-  width: 200px;
-  padding: 10px;
+/* Nueva regla para asegurar que la imagen y el contenido tengan la misma altura */
+.contenedor {
+  display: flex;
+  align-items: stretch; /* Asegura que ambos elementos ocupen la misma altura */
+  justify-content: center;
 }
 
-.li-img:hover{
-  opacity: 0.8;
-  background-color: rgb(224, 214, 208);
+/* Para manejar la imagen de forma responsiva */
+.imagen-producto {
+  max-height: 100%; /* Limita la altura de la imagen */
+  object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
+  max-width: 100%;
+  width: auto;
+}
+
+/* Para manejar la flexibilidad en caso de contenido grande */
+.info-producto {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Asegura que el contenedor ocupe toda la altura disponible */
+}
+
+.imagen-producto {
+  max-width: 100%; /* Limita el ancho al 100% del contenedor */
+  max-height: 100%; /* Limita la altura al 100% del contenedor */
+  object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionar */
+  width: auto; /* Mantiene las proporciones correctas */
+  height: auto; /* Mantiene las proporciones correctas */
+}
+
+.foto-producto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100%; /* Se asegura de que no sobrepase la altura del contenedor */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde */
+  padding: 10px;
 }
