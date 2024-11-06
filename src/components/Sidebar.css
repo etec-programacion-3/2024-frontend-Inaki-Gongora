@@ -1,4 +1,5 @@
 /* src/components/Sidebar.css */
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -27,22 +28,40 @@
   
   .sidebar-content {
     padding: 20px;
+    margin-top: 30px;
   }
   
   .sidebar-link {
     display: block;
     font-size: 18px;
     margin: 10px 0;
+    padding: 10px;
     color: #333;
     text-decoration: none;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: color 0.3s ease, background-color 0.3s ease;
   }
   
   .sidebar-link:hover {
     color: #007acc;
+    background-color: #e0e0e0; /* Fondo de hover para dar efecto de botón */
   }
   
   .sidebar-spacer {
     margin: 20px 0;
     border-top: 1px solid #ddd;
+  }
+  
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
   }
