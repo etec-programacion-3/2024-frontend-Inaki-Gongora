@@ -21,10 +21,24 @@ const ProductoDetalle = () => {
     getProducto();
   }, [id]);
 
+  // useEffect para igualar la altura de .contenedor con .info-producto
+  useEffect(() => {
+    if (producto) {
+      const infoProducto = document.querySelector('.info-producto');
+      const contenedor = document.querySelector('.contenedor');
+      
+      // Establecer la altura de .contenedor igual a la de .info-producto
+      if (infoProducto && contenedor) {
+        contenedor.style.height = `${infoProducto.offsetHeight}px`;
+      }
+    }
+  }, [producto]);
+
   if (!producto) return <p>Loading...</p>;
 
   // Verificar que producto.imagenUrl exista
   const imagenUrlCompleta = producto.imagen ? `http://localhost:3001${producto.imagen}` : '/images/imagen-predeterminada.jpg';
+
   return (
     <div className="cuerpo">
       <div className="contenedor-grande">
