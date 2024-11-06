@@ -1,19 +1,145 @@
-/* src/pages/ProductoDetalle/ProductoDetalle.css */
-.producto-detalle-container {
-  max-width: 600px;
-  margin: auto;
+
+.cuerpo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 100px;
+
+
+}
+
+.contenedor-grande {
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center; /* Alinea verticalmente */
+  width: max-content;
+  height: min-content;
+  max-width: 1800px;
+  padding: 14px;
+  margin: 20px;
+  background-color: transparent;
+  
+}
+
+
+.imagen-producto {
+  width: 400px;
+  padding: 50px;
+}
+
+
+.subtitle{
+  font-size: 22px;
+}
+
+.foto-producto{
+  margin-right: 5px;
+  align-items: center;
+  width: max-content;
+
+}
+
+.foto-principal{
+  align-items: center;
+  display: flex;
+  width: 200px;
+}
+
+.ul1{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.info-producto{
+  text-align: left;
+  padding: 10px;
+}
+
+.subtitulo{
+  font-size: 18px;
+}
+
+.imagen{
+  margin-left: 78px;
+}
+
+.pago{
+  margin-top: 14px;
+  color: rgb(2, 30, 101);
+
+  
+}
+
+.talles{
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.div-talles {
+  border: 2px solid #005f99;
+  width: 110px; /* Limita el ancho del div de talles */
+  margin: 5px;
+  padding: 10px;
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+.div-talles:hover {
+  background-color: #005f99;
+  color: rgb(248, 248, 242);
+}
+
+.compra-container {
+  width: 80%; /* Ajusta el contenedor al ancho necesario */
+  margin-bottom: 15px;
+}
+
+.compra {
+  width: 95%;
+  height: 70px;
+  background-color: #007acc;
+  color: white;
   padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  transition: 0.5s;
+  padding: 10px 0; /* Ajusta el padding si es necesario */
 }
 
-.producto-detalle-container h1 {
-  color: #333;
+.compra:hover {
+  color: white;
+  background-color: #005f99;
 }
 
-.producto-detalle-container p {
-  margin: 10px 0;
-  font-size: 16px;
-  color: #555;
+
+
+.zapas-descrip-titulo{
+  font-size: 18px;
+  color: rgb(98, 93, 93);
+}
+
+
+
+.info-zapatillas{
+  width: 80%;
+  margin-top: 3px;
+  font-size: 14px;
+  color: rgb(189, 183, 183);
+}
+
+.li-img{
+  width: 200px;
+  padding: 10px;
+}
+
+.li-img:hover{
+  opacity: 0.8;
+  background-color: rgb(224, 214, 208);
 }
