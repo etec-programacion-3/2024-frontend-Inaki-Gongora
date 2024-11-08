@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 100px;
 }
 
 .contenedor-grande {
@@ -14,8 +13,6 @@
   max-width: none;
   padding: 14px;
   background-color: transparent;
-  min-width: 1000px;
-  min-height: 1000px;
 }
 
 .imagen-producto {
@@ -61,7 +58,7 @@
 
 .pago {
   margin-top: 14px;
-  color: rgb(2, 30, 101);
+  color: #005f99;
 }
 
 .talles {
@@ -103,7 +100,7 @@
   border: none;
   transition: 0.5s;
   padding: 10px 0;
-  margin-top: 10px;
+  border-radius: 4px;
 }
 
 .compra:hover {
@@ -118,7 +115,6 @@
 
 .info-zapatillas {
   width: 80%;
-  margin-top: 3px;
   font-size: 14px;
   color: rgb(189, 183, 183);
 }
@@ -168,4 +164,163 @@
   max-height: 100%; /* Se asegura de que no sobrepase la altura del contenedor */
   overflow: hidden; /* Oculta cualquier contenido que se desborde */
   padding: 10px;
+}
+
+/* Para que ocupe todo el ancho de la pantalla */
+.cuerpo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+  width: 100%;
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+  box-sizing: border-box;
+}
+
+.contenedor-grande {
+  display: flex;
+  max-width: 1200px; /* Limita el ancho para que no sea demasiado grande en pantallas amplias */
+  width: 100%;
+  padding: 20px;
+  background-color: white; /* Cambia el fondo si deseas */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar el contenido */
+  gap: 30px; /* Espacio entre la imagen y la información del producto */
+}
+
+.imagen-producto {
+  max-width: 400px;
+  width: 100%; /* Se adapta al contenedor */
+  object-fit: contain;
+  border-radius: 8px; /* Bordes redondeados para estética */
+}
+
+.foto-producto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+}
+
+.info-producto {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+.talles, .compra-container, .info-zapatillas {
+  width: 100%;
+}
+
+/* Espacio adicional para el contenido dentro de la sección de información */
+.info-producto h1,
+.info-producto h2,
+.info-producto h4,
+.info-producto h3 {
+  margin: 10px 0; /* Aumenta el espacio entre textos */
+}
+
+.compra {
+  width: 100%;
+  height: 50px; /* Botón más grande */
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .contenedor-grande {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+  
+  .imagen-producto {
+    max-width: 100%;
+  }
+}
+
+.popup-guia {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-contenido {
+  background-color: white;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.popup-contenido table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.popup-contenido table, .popup-contenido th, .popup-contenido td {
+  border: 1px solid #ddd;
+}
+
+.popup-contenido th, .popup-contenido td {
+  padding: 10px;
+  text-align: center;
+}
+
+.popup-contenido th {
+  background-color: #f4f4f4;
+}
+
+.cerrar-popup {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.cerrar-popup:hover {
+  background-color: #d32f2f;
+}
+
+.guia{
+  color: #005f99;
+  cursor: pointer;
+}
+
+.ppopup{
+  margin-bottom: 10px;
+}
+
+.titulo-producto{
+  font-size: 32px;
+}
+
+.precio-producto{
+  font-size: 24px;
+  color: rgb(80, 80, 80);
+}
+
+.pago{
+  font-size: 18px;
+}
+
+hr {
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  margin: 10px 0; /* Ajusta el espacio arriba y abajo de la línea */
+  border: 0;
+  border-top: 1px solid #ccc; /* Establece el color de la línea */
 }

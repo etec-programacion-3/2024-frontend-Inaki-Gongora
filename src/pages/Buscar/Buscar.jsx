@@ -14,14 +14,13 @@ const Buscar = () => {
   const navigate = useNavigate();
 
   const handleBuscar = async () => {
-    // Limpiar los resultados y establecer que se ha buscado antes de realizar una nueva búsqueda
     setResultados([]);
     setHaBuscado(false);
 
     try {
       const resultadosBusqueda = await buscarProductos(nombreProducto, precioRango[0], precioRango[1]);
       setResultados(resultadosBusqueda);
-      setHaBuscado(true); // Indicar que la búsqueda se ha realizado y mostrar resultados
+      setHaBuscado(true);
     } catch (error) {
       console.error('Error al buscar productos:', error);
     }
@@ -76,9 +75,18 @@ const Buscar = () => {
         ) : (
           resultados.map((producto) => (
             <div key={producto.id} className="producto-card" onClick={() => handleProductoClick(producto.id)}>
-              <h2>{producto.nombre}</h2>
-              <p>Precio: ${producto.precio}</p>
-              <p>{producto.descripcion}</p>
+              <div className="producto-info">
+                <h2>{producto.nombre}</h2>
+                <p>Precio: ${producto.precio}</p>
+                <p>{producto.descripcion}</p>
+              </div>
+              {producto.imagen && (
+                <img
+                  className="producto-imagen"
+                  src={`http://localhost:3001${producto.imagen}`}
+                  alt={producto.nombre}
+                />
+              )}
             </div>
           ))
         )}

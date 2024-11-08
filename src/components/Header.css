@@ -20,8 +20,9 @@
     height: 100px;
     width: 100%;
     text-decoration: none;
-    opacity: 0.9;
+    opacity: 0.95;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra hacia abajo */
 }
 
 /* Agrega un margen superior al contenido para que no quede debajo del header */

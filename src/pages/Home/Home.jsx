@@ -15,7 +15,6 @@ const Home = () => {
         <div className="Imagen-fondo">
           <div>
             <p className="Nueva-Coleccion">ZEPHYR</p>
-            <p className="Sigman">Nueva colección 2024</p>
           </div>
         </div>
 

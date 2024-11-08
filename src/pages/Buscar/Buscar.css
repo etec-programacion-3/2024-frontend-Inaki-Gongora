@@ -102,3 +102,41 @@
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
+
+  .buscar-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .resultados-busqueda {
+    margin-top: 20px;
+  }
+  
+  .producto-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .producto-card:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .producto-info {
+    flex: 1;
+  }
+  
+  .producto-imagen {
+    width: 80px;
+    height: 80px;
+    object-fit: contain; /* Asegura que la imagen completa sea visible */
+    margin-left: 15px;
+    border-radius: 4px;
+    background-color: #f0f0f0; /* Opcional: agrega un color de fondo para imágenes más pequeñas */
+  }
