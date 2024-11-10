@@ -1,84 +1,137 @@
 // src/pages/Anillos/Anillos.jsx
 import React from 'react';
 import './Aros.css';
+import { AiOutlineHeart } from 'react-icons/ai';
+import fotito from "../../assets/foto-producto2.png";
+import fondoimagen from "../../assets/foto-producto2.png";
+import loloolo from "../../assets/fondo-landing-copia.png"; // Ruta de ejemplo
 
-const Anillos = () => {
+const Aros = () => {
   const productos = [
     {
       id: 1,
-      nombre: 'Anillo de Plata',
-      descripcion: 'Elegante anillo de plata con diseño minimalista.',
-      precio: 25.99,
-      imagen: './../../src/assets/anillo1.' // Ruta de ejemplo
+      nombre: 'Anillo de cóctel Luna, Blanco, Baño de rodio',
+      precioOriginal: 425.0,
+      precioDescuento: 340.0,
+      descuento: 20,
+      cuotas: 18888,
+      imagen: fotito,
     },
     {
       id: 2,
-      nombre: 'Anillo de Oro',
-      descripcion: 'Anillo de oro clásico con detalles sofisticados.',
-      precio: 150.0,
-      imagen: './../../assets/fondo-landing-copia.png' // Ruta de ejemplo
+      nombre: 'Anillo de cóctel Constella Talla princesa, Baño de rodio',
+      precioOriginal: 289.0,
+      precioDescuento: 231.2,
+      descuento: 20,
+      cuotas: 12844,
+      imagen: fotito,
     },
     {
       id: 3,
-      nombre: 'Anillo de Diamante',
-      descripcion: 'Anillo con incrustación de diamante auténtico.',
-      precio: 1200.99,
-      imagen: 'src/assets/imagenes/anillo-diamante.jpg' // Ruta de ejemplo
+      nombre: 'Anillo Vittore Wide, Blanco, Baño de rodio',
+      precioOriginal: 379.0,
+      precioDescuento: 303.2,
+      descuento: 20,
+      cuotas: 16844,
+      imagen: fotito,
     },
     {
       id: 4,
-      nombre: 'Anillo de Esmeralda',
-      descripcion: 'Anillo con hermosa esmeralda y acabado en oro blanco.',
-      precio: 950.5,
-      imagen: 'src/assets/imagenes/anillo-esmeralda.jpg' // Ruta de ejemplo
+      nombre: 'Anillo de compromiso, Oro blanco, Diamante de 1 quilate',
+      precioOriginal: 1200.0,
+      precioDescuento: 960.0,
+      descuento: 20,
+      cuotas: 53333,
+      imagen: fotito,
     },
     {
       id: 5,
-      nombre: 'Anillo de Zafiro',
-      descripcion: 'Elegante anillo con zafiro genuino en el centro.',
-      precio: 875.25,
-      imagen: 'src/assets/imagenes/anillo-zafiro.jpg' // Ruta de ejemplo
+      nombre: 'Anillo Hyperbola, Símbolo del infinito, Baño de rodio',
+      precioOriginal: 310.0,
+      precioDescuento: 248.0,
+      descuento: 20,
+      cuotas: 13778,
+      imagen: fotito,
     },
     {
       id: 6,
-      nombre: 'Anillo de Zafiro',
-      descripcion: 'Elegante anillo con zafiro genuino en el centro.',
-      precio: 875.25,
-      imagen: 'src/assets/imagenes/anillo-zafiro.jpg' // Ruta de ejemplo
+      nombre: 'Anillo Constella, Pavé, Baño tono oro rosa',
+      precioOriginal: 320.0,
+      precioDescuento: 256.0,
+      descuento: 20,
+      cuotas: 14222,
+      imagen: fotito,
     },
     {
       id: 7,
-      nombre: 'Anillo de Zafiro',
-      descripcion: 'Elegante anillo con zafiro genuino en el centro.',
-      precio: 875.25,
-      imagen: 'src/assets/imagenes/anillo-zafiro.jpg' // Ruta de ejemplo
+      nombre: 'Anillo Trilogy, Tres piedras, Baño de rodio',
+      precioOriginal: 410.0,
+      precioDescuento: 328.0,
+      descuento: 20,
+      cuotas: 18222,
+      imagen: fotito,
     },
     {
       id: 8,
-      nombre: 'Anillo de Zafiro',
-      descripcion: 'Elegante anillo con zafiro genuino en el centro.',
-      precio: 875.25,
-      imagen: 'src/assets/imagenes/anillo-zafiro.jpg' // Ruta de ejemplo
+      nombre: 'Anillo Victoria, Diseño floral, Baño de oro',
+      precioOriginal: 499.0,
+      precioDescuento: 399.2,
+      descuento: 20,
+      cuotas: 22178,
+      imagen: fotito,
     },
     {
       id: 9,
-      nombre: 'Anillo de Zafiro',
-      descripcion: 'Elegante anillo con zafiro genuino en el centro.',
-      precio: 875.25,
-      imagen: 'src/assets/imagenes/anillo-zafiro.jpg' // Ruta de ejemplo
-    }
+      nombre: 'Anillo solitario con zafiro, Baño de rodio',
+      precioOriginal: 600.0,
+      precioDescuento: 480.0,
+      descuento: 20,
+      cuotas: 26666,
+      imagen: fotito,
+    },
+    {
+      id: 10,
+      nombre: 'Anillo Twist, Dos tonos, Baño de rodio y oro rosa',
+      precioOriginal: 285.0,
+      precioDescuento: 228.0,
+      descuento: 20,
+      cuotas: 12667,
+      imagen: fotito,
+    },
+    {
+      id: 11,
+      nombre: 'Anillo Celestial, Inspirado en la luna, Baño de oro',
+      precioOriginal: 320.0,
+      precioDescuento: 256.0,
+      descuento: 20,
+      cuotas: 14222,
+      imagen: fotito,
+    },
+    {
+      id: 12,
+      nombre: 'Anillo Eternity, Diamantes de laboratorio, Baño de platino',
+      precioOriginal: 890.0,
+      precioDescuento: 712.0,
+      descuento: 20,
+      cuotas: 39556,
+      imagen: fotito,
+    },
   ];
 
   return (
     <div className="anillos-container">
-      <h1 className="anillos-title">Aros</h1>
+      <header className="anillos-header">
+        <h1 className="anillos-title">Aros colgantes</h1>
+        <h3 className="anillos-subtitle">
+        Los aros colgantes de Zephyr son elementos elegantes y sofisticados, con cristales que llevan todo el encanto y la magia de la marca a los cuatro rincones del mundo.
+        </h3>
+      </header>
       <div className="anillos-grid">
-        {productos.map(producto => (
+        {productos.map((producto) => (
           <div className="producto-card" key={producto.id}>
-            <img src={producto.imagen} alt={producto.nombre} className="producto-imagen" />
+            <img src={producto.imagen} alt={producto.nombre} className="imagenloca" />
             <h2 className="producto-nombre">{producto.nombre}</h2>
-            <p className="producto-descripcion">{producto.descripcion}</p>
-            <p className="producto-precio">${producto.precio.toFixed(2)}</p>
+            <p className="producto-precio-descuento">${producto.precioDescuento.toFixed(2)}</p>
           </div>
         ))}
       </div>
@@ -86,4 +139,4 @@ const Anillos = () => {
   );
 };
 
-export default Anillos;
+export default Aros;
