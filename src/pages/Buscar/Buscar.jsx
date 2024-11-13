@@ -74,7 +74,7 @@ const Buscar = () => {
           <p>No se encontraron productos</p>
         ) : (
           resultados.map((producto) => (
-            <div key={producto.id} className="producto-card" onClick={() => handleProductoClick(producto.id)}>
+            <div key={producto.id} className="producto-resultado" onClick={() => handleProductoClick(producto.id)}>
               <div className="producto-info">
                 <h2>{producto.nombre}</h2>
                 <p>Precio: ${producto.precio}</p>
