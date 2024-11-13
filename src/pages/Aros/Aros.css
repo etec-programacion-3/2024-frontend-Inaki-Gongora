@@ -15,7 +15,7 @@ body {
   overflow-x: hidden; /* Oculta el scroll horizontal */
 }
 
-.anillos-container {
+.aros-container {
   text-align: center;
 }
 
@@ -31,7 +31,7 @@ body {
   margin-bottom: 60px;
 }
 
-.anillos-title {
+.aros-title {
   text-align: left;
   font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";
   font-weight: 100;
@@ -42,7 +42,7 @@ body {
   margin-bottom: 20px;
 }
 
-.anillos-subtitle {
+.aros-subtitle {
   font-weight: 100;
   text-align: left;
   width: 620px;
@@ -51,27 +51,27 @@ body {
   color: #000000;
 }
 
-.anillos-grid {
+.aros-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Muestra 4 anillos por fila */
+  grid-template-columns: repeat(4, 1fr); /* Muestra 4 aros por fila */
   gap: 30px;
   margin: 10px;
 }
 
 @media (max-width: 1200px) {
-  .anillos-grid {
-    grid-template-columns: repeat(3, 1fr); /* Muestra 3 anillos por fila en pantallas medianas */
+  .aros-grid {
+    grid-template-columns: repeat(3, 1fr); /* Muestra 3 aros por fila en pantallas medianas */
   }
 }
 
 @media (max-width: 900px) {
-  .anillos-grid {
-    grid-template-columns: repeat(2, 1fr); /* Muestra 2 anillos por fila en pantallas pequeñas */
+  .aros-grid {
+    grid-template-columns: repeat(2, 1fr); /* Muestra 2 aros por fila en pantallas pequeñas */
   }
 }
 
 @media (max-width: 600px) {
-  .anillos-grid {
+  .aros-grid {
     grid-template-columns: 1fr; /* Muestra 1 anillo por fila en pantallas extra pequeñas */
   }
 }

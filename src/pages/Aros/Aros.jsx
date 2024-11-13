@@ -14,7 +14,9 @@ const Aros = () => {
     const obtenerProductos = async () => {
       try {
         const data = await fetchProductos();
-        setProductos(data); // Guardamos los productos en el estado
+        // Filtra los productos para que solo se muestren los de tipo "aro"
+        const productosAros = data.filter(producto => producto.tipo === 'aro');
+        setProductos(productosAros); // Guardamos los productos filtrados en el estado
       } catch (error) {
         setError('Error al obtener los productos.');
       } finally {
@@ -34,14 +36,14 @@ const Aros = () => {
   }
 
   return (
-    <div className="anillos-container">
-      <header className="anillos-header">
-        <h1 className="anillos-title">Aros colgantes</h1>
-        <h3 className="anillos-subtitle">
+    <div className="aros-container">
+      <header className="aros-header">
+        <h1 className="aros-title">Aros colgantes</h1>
+        <h3 className="aros-subtitle">
           Los aros colgantes de Zephyr son elementos elegantes y sofisticados, con cristales que llevan todo el encanto y la magia de la marca a los cuatro rincones del mundo.
         </h3>
       </header>
-      <div className="anillos-grid">
+      <div className="aros-grid">
         {productos.map((producto) => (
           <Link to={`/producto/${producto.id}`} className="producto-card" key={producto.id}> {/* Link que redirige al detalle del producto */}
             <img src={producto.imagen || fotito} alt={producto.nombre} className="imagenloca" />

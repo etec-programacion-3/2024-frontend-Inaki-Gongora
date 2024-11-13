@@ -1,138 +1,63 @@
-// src/pages/Anillos/Anillos.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Importamos Link para redirigir
 import './Anillos.css';
-import { AiOutlineHeart } from 'react-icons/ai';
-import fotito from "../../assets/foto-producto2.png";
-import loloolo from "../../assets/fondo-landing-copia.png"; // Ruta de ejemplo
+import fotito from "../../assets/foto-producto2.png"; // Imagen predeterminada en caso de no tener imagen
+
+import { fetchProductos } from '../../services/api'; // Importa la función para obtener productos
 
 const Anillos = () => {
-  const productos = [
-    {
-      id: 1,
-      nombre: 'Anillo de cóctel Luna, Blanco, Baño de rodio',
-      precioOriginal: 425.0,
-      precioDescuento: 340.0,
-      descuento: 20,
-      cuotas: 18888,
-      imagen: fotito,
-    },
-    {
-      id: 2,
-      nombre: 'Anillo de cóctel Constella Talla princesa, Baño de rodio',
-      precioOriginal: 289.0,
-      precioDescuento: 231.2,
-      descuento: 20,
-      cuotas: 12844,
-      imagen: fotito,
-    },
-    {
-      id: 3,
-      nombre: 'Anillo Vittore Wide, Blanco, Baño de rodio',
-      precioOriginal: 379.0,
-      precioDescuento: 303.2,
-      descuento: 20,
-      cuotas: 16844,
-      imagen: fotito,
-    },
-    {
-      id: 4,
-      nombre: 'Anillo de compromiso, Oro blanco, Diamante de 1 quilate',
-      precioOriginal: 1200.0,
-      precioDescuento: 960.0,
-      descuento: 20,
-      cuotas: 53333,
-      imagen: fotito,
-    },
-    {
-      id: 5,
-      nombre: 'Anillo Hyperbola, Símbolo del infinito, Baño de rodio',
-      precioOriginal: 310.0,
-      precioDescuento: 248.0,
-      descuento: 20,
-      cuotas: 13778,
-      imagen: fotito,
-    },
-    {
-      id: 6,
-      nombre: 'Anillo Constella, Pavé, Baño tono oro rosa',
-      precioOriginal: 320.0,
-      precioDescuento: 256.0,
-      descuento: 20,
-      cuotas: 14222,
-      imagen: fotito,
-    },
-    {
-      id: 7,
-      nombre: 'Anillo Trilogy, Tres piedras, Baño de rodio',
-      precioOriginal: 410.0,
-      precioDescuento: 328.0,
-      descuento: 20,
-      cuotas: 18222,
-      imagen: fotito,
-    },
-    {
-      id: 8,
-      nombre: 'Anillo Victoria, Diseño floral, Baño de oro',
-      precioOriginal: 499.0,
-      precioDescuento: 399.2,
-      descuento: 20,
-      cuotas: 22178,
-      imagen: fotito,
-    },
-    {
-      id: 9,
-      nombre: 'Anillo solitario con zafiro, Baño de rodio',
-      precioOriginal: 600.0,
-      precioDescuento: 480.0,
-      descuento: 20,
-      cuotas: 26666,
-      imagen: fotito,
-    },
-    {
-      id: 10,
-      nombre: 'Anillo Twist, Dos tonos, Baño de rodio y oro rosa',
-      precioOriginal: 285.0,
-      precioDescuento: 228.0,
-      descuento: 20,
-      cuotas: 12667,
-      imagen: fotito,
-    },
-    {
-      id: 11,
-      nombre: 'Anillo Celestial, Inspirado en la luna, Baño de oro',
-      precioOriginal: 320.0,
-      precioDescuento: 256.0,
-      descuento: 20,
-      cuotas: 14222,
-      imagen: fotito,
-    },
-    {
-      id: 12,
-      nombre: 'Anillo Eternity, Diamantes de laboratorio, Baño de platino',
-      precioOriginal: 890.0,
-      precioDescuento: 712.0,
-      descuento: 20,
-      cuotas: 39556,
-      imagen: fotito,
-    },
-  ];
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const obtenerProductos = async () => {
+      try {
+        const data = await fetchProductos();
+        setProductos(data); // Guardamos los productos en el estado
+      } catch (error) {
+        setError('Error al obtener los productos.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    obtenerProductos();
+  }, []); // Solo se ejecuta una vez cuando el componente se monta
+
+  if (loading) {
+    return <p>Cargando productos...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div className="anillos-container">
       <header className="anillos-header">
-        <h1 className="anillos-title">Anillos de lujo</h1>
+        <h1 className="anillos-title">Anillos</h1>
         <h3 className="anillos-subtitle">
-          Encontrá tu nuevo complemento ideal para todos los días en nuestra cautivadora gama de anillos: de compromiso, bandas atemporales y piezas combinables que realzarán cualquier prenda, de día o de noche.
+          Los anillos de Zephyr son piezas únicas, diseñadas para resaltar la elegancia y el estilo en cada momento.
         </h3>
       </header>
       <div className="anillos-grid">
-        {productos.map((producto) => (
-          <div className="producto-card" key={producto.id}>
-            <img src={producto.imagen} alt={producto.nombre} className="imagenloca" />
-            <h2 className="producto-nombre">{producto.nombre}</h2>
-            <p className="producto-precio-descuento">${producto.precioDescuento.toFixed(2)}</p>
-          </div>
-        ))}
+        {productos
+          .filter((producto) => producto.tipo === 'anillo') // Filtramos los productos que son de tipo 'anillo'
+          .map((producto) => (
+            <Link to={`/producto/${producto.id}`} className="producto-card" key={producto.id}> {/* Link que redirige al detalle del producto */}
+              <img src={producto.imagen || fotito} alt={producto.nombre} className="imagenloca" />
+              <h2 className="producto-nombre">{producto.nombre}</h2>
+              <p className="producto-precio">
+                {
+                  // Aseguramos que el precio es un número y es válido
+                  !isNaN(producto.precio) && producto.precio !== null
+                    ? `$${parseFloat(producto.precio).toFixed(2)}`
+                    : "Precio no disponible"
+                }
+              </p>
+            </Link>
+          ))}
       </div>
     </div>
   );
