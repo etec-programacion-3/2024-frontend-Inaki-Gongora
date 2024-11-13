@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Asegúrate de tener axios instalado
+import * as jwt_decode from 'jwt-decode';
 import { useAuth } from '../../context/AuthContext';
 import './Login.css';
 
@@ -26,21 +27,26 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(''); // Resetea el mensaje de error
-    try {
-      const response = await axios.post(`${API_URL}login`, { email, contraseña: password });
-      
-      if (response.data.token) {
-        login(response.data.token); // Llama a login del contexto con el token real
-        navigate('/perfil'); // Redirige al perfil después del inicio de sesión
-      } else {
-        setErrorMessage('Email o contraseña incorrectos.');
-      }
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error);
-      setErrorMessage('Ocurrió un error al intentar iniciar sesión.'); // Manejo de errores
+  setErrorMessage('');
+  try {
+    const response = await axios.post(`${API_URL}login`, { email, contraseña: password });
+    
+    if (response.data.token) {
+      const decodedToken = jwt_decode(response.data.token);  // Decodificar el token
+      const userId = decodedToken.user_id; // Suponiendo que 'user_id' esté en el payload del token
+
+      login(response.data.token); // Llama a login con el token
+      localStorage.setItem('user_id', userId); // Guardamos el user_id en localStorage
+
+      navigate('/perfil'); // Redirige al perfil después del inicio de sesión
+    } else {
+      setErrorMessage('Email o contraseña incorrectos.');
     }
-  };
+  } catch (error) {
+    console.error('Error al iniciar sesión:', error);
+    setErrorMessage('Ocurrió un error al intentar iniciar sesión.');
+  }
+};
 
   const handleCreateAccount = () => {
     navigate('/Registro'); // Cambia la ruta según la que hayas definido para "Crear cuenta"
