@@ -1,19 +1,22 @@
+// ProductoDetalle.jsx
+
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Cambié useHistory por useNavigate
 import { fetchProductoById } from '../../services/api';
-import { FaArrowAltCircleUp } from 'react-icons/fa'; // Importa el icono de flecha
+import { addToCarrito } from '../../services/api'; // Importamos la función de agregar al carrito
+import { FaArrowAltCircleUp } from 'react-icons/fa'; // Icono de flecha
 import './ProductoDetalle.css';
 
 const ProductoDetalle = () => {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
-  const [mostrarGuia, setMostrarGuia] = useState(false); // Estado para controlar la visibilidad del pop-up
+  const [mostrarGuia, setMostrarGuia] = useState(false);
+  const navigate = useNavigate();  // Usamos useNavigate en lugar de useHistory
 
   useEffect(() => {
     const getProducto = async () => {
       try {
         const data = await fetchProductoById(id);
-        console.log('Producto:', data);
         setProducto(data);
       } catch (error) {
         console.error('Error loading producto:', error);
@@ -23,25 +26,29 @@ const ProductoDetalle = () => {
     getProducto();
   }, [id]);
 
-  useEffect(() => {
-    if (producto) {
-      const infoProducto = document.querySelector('.info-producto');
-      const contenedor = document.querySelector('.contenedor');
+  const imagenUrlCompleta = producto ? `http://localhost:3001${producto.imagen}` : '/images/imagen-predeterminada.jpg';
 
-      if (infoProducto && contenedor) {
-        contenedor.style.height = `${infoProducto.offsetHeight}px`;
-      }
-    }
-  }, [producto]);
-
-  if (!producto) return <p>Loading...</p>;
-
-  const imagenUrlCompleta = producto.imagen ? `http://localhost:3001${producto.imagen}` : '/images/imagen-predeterminada.jpg';
-
-  // Función para mostrar o esconder el pop-up
   const toggleGuia = () => {
     setMostrarGuia(!mostrarGuia);
   };
+
+  const handleComprar = async () => {
+    const token = localStorage.getItem('token');  // Obtener el token del localStorage
+    if (!token) {
+      alert('Por favor, inicia sesión para comprar.');
+      navigate('/login');  // Usamos navigate en lugar de history.push
+      return;
+    }
+
+    try {
+      await addToCarrito(id, 1);  // Agregar al carrito con cantidad 1
+      alert('Producto agregado al carrito.');
+    } catch (error) {
+      alert('Hubo un problema al agregar el producto al carrito.');
+    }
+  };
+
+  if (!producto) return <p>Loading...</p>;
 
   return (
     <div className="cuerpo">
@@ -68,13 +75,12 @@ const ProductoDetalle = () => {
             Guía de talles
             <FaArrowAltCircleUp style={{ marginLeft: '8px', transform: 'rotate(45deg)', position: 'relative', top: '2px' }} />
           </h4>
-          {/* Pop-up con la guía de talles */}
+
           {mostrarGuia && (
             <div className="popup-guia">
               <div className="popup-contenido">
                 <h2 className='guiatalles'>Guía de Talles</h2>
                 <p className='ppopup'>Utilice la siguiente tabla para elegir su talla.</p>
-
                 <table>
                   <thead>
                     <tr>
@@ -143,7 +149,7 @@ const ProductoDetalle = () => {
           )}
 
           <div className="compra-container">
-            <button className="compra">Comprar</button>
+            <button className="compra" onClick={handleComprar}>Comprar</button>
           </div>
 
           <h1 className="zapas-descrip-titulo">Descripción</h1>

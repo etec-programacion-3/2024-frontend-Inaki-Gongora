@@ -73,3 +73,36 @@ export const buscarProductos = async (nombre, minPrecio, maxPrecio) => {
     throw new Error(error.response?.data?.message || 'Error desconocido');
   }
 };
+
+// Obtener productos del carrito de un usuario
+export const getCarrito = async (userId) => {
+  try {
+    const response = await axios.get(`/api/carrito/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener el carrito:", error);
+    throw error;
+  }
+};
+
+// Agregar producto al carrito
+export const addToCarrito = async (userId, productoId, cantidad) => {
+  try {
+    const response = await axios.post(`/api/carrito/${userId}`, { producto_id: productoId, cantidad });
+    return response.data;
+  } catch (error) {
+    console.error("Error al agregar al carrito:", error);
+    throw error;
+  }
+};
+
+// Eliminar producto del carrito
+export const removeFromCarrito = async (userId, productoId) => {
+  try {
+    const response = await axios.delete(`/api/carrito/${userId}/${productoId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al eliminar del carrito:", error);
+    throw error;
+  }
+};
