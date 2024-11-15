@@ -1,5 +1,4 @@
-// src/components/Header.js
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ImagenBuscar from "../assets/buscar.png";
 import Carro from "../assets/carro.png";
@@ -13,7 +12,8 @@ const Header = () => {
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [showLogo] = useState(false);
+  const [isVisible, setIsVisible] = useState(false); // Estado para visibilidad
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -27,14 +27,33 @@ const Header = () => {
     }
   };
 
-  // Manejador de desplazamiento para mostrar el logo al hacer scroll
+  // Detectar desplazamiento
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Mostrar header si se desplaza hacia abajo
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
 
   return (
-    <header id="header">
+    <header id="header" className={isVisible ? 'visible' : 'hidden'}>
       <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet" />
 
-      {/* Solo muestra el logo cuando showLogo es true */}
-      <Link to="/" className={`logo-marca ${showLogo ? "visible" : "oculto"}`} id="contenedor-titulo">
+      <Link to="/" className="logo-marca" id="contenedor-titulo">
         <p className="logo-texto">ZEPHYR</p>
       </Link>
 

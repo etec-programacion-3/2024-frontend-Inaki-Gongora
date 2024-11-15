@@ -3,7 +3,7 @@
 
 /* General reset */
 * {
-    margin: 0;
+    margin: 0px;
     padding: 0;
     text-decoration: none;
 }
@@ -24,6 +24,18 @@
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra hacia abajo */
 }
+
+/* Header visible */
+#header.visible {
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Header oculto */
+ 
+
+
+
 
 /* Agrega un margen superior al contenido para que no quede debajo del header */
 body {

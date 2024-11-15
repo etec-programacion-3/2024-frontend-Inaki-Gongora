@@ -12,7 +12,7 @@ html, body { /* Asegura que el body y el html ocupen toda la ventana */
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 4vmin;
   pointer-events: none;
 }
 
@@ -34,7 +34,7 @@ html, body { /* Asegura que el body y el html ocupen toda la ventana */
 /* Estilos para el header */
 .App-header {
   background-color: #282c34;
-  min-height: 100vh; /* Altura mínima del header */
+  min-height: 1vh; /* Altura mínima del header */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,6 @@ html, body { /* Asegura que el body y el html ocupen toda la ventana */
 .header {
   background-color: #333;
   color: white;
-  padding: 1rem;
 }
 
 .navbar {
