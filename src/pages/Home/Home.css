@@ -4,20 +4,21 @@
 }
 
 
+
 .abril-fatface-regular {
     font-family: "Abril Fatface", serif;
     font-weight: lighter;
     font-style: normal;
-  }
-  
-  .advent-pro-clean {
+}
+
+.advent-pro-clean {
     font-family: "Advent Pro", sans-serif;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
     font-variation-settings:
-      "width" 100;
-  }
+    "width" 100;
+}
 
 .video-background{
     position: relative;
@@ -92,15 +93,16 @@
     background-color: #f9f9f9; 
     background-image: url(./../../assets/fondoaroscolgantes\ -home.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: calc();
     color: rgb(0, 0, 0);
     display: flex;             /* Enables flexbox layout */
     flex-direction: column;    /* Stack children vertically */
     justify-content: flex-end; /* Align children to the bottom */
     margin-bottom: 30px;       /* Add spacing below the div */
-    transition: transform 0.3s;
-    text-decoration: none; /* Smooth transition for hover effect */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+    text-decoration: none;
 }
+
 
 .div-imagenes1:hover {
     transform: scale(1.01);    /* Slightly enlarge the div on hover */
@@ -170,5 +172,45 @@
 .ArosAnillos {
     font-size: 55px;
     font-weight: 500;
-    font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";;
+    font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";
+}
+
+.zephyr-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que ocupa el ancho completo */
+    text-align: center;
+    
+}
+
+.zephyr-info {
+    text-align: center;
+    width: 100%; /* Define un ancho consistente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    background-color: #fff; /* Fondo opcional */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    padding: 70px;
+    background-color: #f0efe5;
+}
+
+.titulo-zephyr {
+    font-family: "ITC Novarese for Swarovski";
+    font-size: 50px;
+    font-weight: 100;
+
+}
+
+.descripcion-zephyr {
+    font-size: 18px;
+    margin: 0 auto; /* Centra el texto */
+    width: 800px;
+    font-weight: 400;
+}
+
+.titulo-zephyr-productos {
+    font-family: "ITC Novarese for Swarovski";
+    font-size: 40px;
+    font-weight: 100;
+    padding-top: 40px;
 }
