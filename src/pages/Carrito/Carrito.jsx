@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'; // Asegúrate de que Axios esté instalado
+import axios from 'axios';
 import './Carrito.css'; // Asegúrate de adaptar tus estilos aquí
-import bolsaDeCompras from '../../assets/bolsas-de-compra.png';
-import tarjetaIcono from '../../assets/tarjeta-icono.png';
-import envioIcono from '../../assets/camion-icono.png';
-import cajaDevolucion from '../../assets/caja-de-devolucion.png';
 
 const Carrito = () => {
   const [productos, setProductos] = useState([]); // Estado para almacenar los productos
@@ -43,21 +39,35 @@ const Carrito = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
+    <div className="carrito-container">
       <h1>Tu Carrito</h1>
       {productos.length === 0 ? (
         <p>No hay productos en tu carrito.</p>
       ) : (
-        <ul>
+        <div className="resultados-busqueda">
           {productos.map((producto) => (
-            <li key={producto.id}>
-              <img src={producto.imagen} alt={producto.nombre} style={{ width: '50px' }} />
-              <p>{producto.nombre}</p>
-              <p>Precio: ${producto.precio}</p>
-              <p>Cantidad: {producto.cantidad}</p>
-            </li>
+            <div key={producto.id} className="producto-resultado">
+              <div className="producto-info">
+                <h2>{producto.nombre}</h2>
+                <p>Precio: ${producto.precio}</p>
+                <p>Cantidad: {producto.cantidad}</p>
+              </div>
+              {producto.imagen ? (
+                <img
+                  className="producto-imagen"
+                  src={producto.imagen.startsWith('http') ? producto.imagen : `http://localhost:3001${producto.imagen}`}
+                  alt={producto.nombre}
+                />
+              ) : (
+                <img
+                  className="producto-imagen"
+                  src="ruta-a-imagen-por-defecto.png"
+                  alt="Producto por defecto"
+                />
+              )}
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
