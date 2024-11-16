@@ -60,25 +60,49 @@ const Home = () => {
         </div>
       </div>
       <h1 className="titulo-zephyr-productos"> Nuestros productos </h1>
-      <section className="seccion">
+      
+      <div className='aros-anillos'>
         <div className="Aros">
           <div className="video-aros">
             <video className="video-aros" autoPlay loop muted>
+              <source src={VideoAros} type="video/mp4" />
+              Tu navegador no soporta videos HTML5.
+            </video>
+          </div>
+          <div className='aros-texto'>
+            <div >
+              <h1 className='titulo-aros'> Aros </h1>
+            </div>
+            <div className='info-aros'>
+              Los aros de Zephyr son más que accesorios, son una declaración de elegancia y sofisticación. Cada diseño es meticulosamente elaborado con materiales de la más alta calidad, fusionando arte y exclusividad en cada detalle. Desde líneas minimalistas hasta piezas audaces y deslumbrantes, nuestros aros destacan por su impecable brillo y estilo único, convirtiéndose en el complemento perfecto para realzar tu esencia y celebrar momentos inolvidables. Descubre la perfección en cada par y deja que Zephyr sea el reflejo de tu lujo personal
+            </div>
+            <div >
+              <button className='boton-aros'> Explorar la colección</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="Anillos">
+          <div className='aros-texto'>
+            <div >
+              <h1 className='titulo-aros'> Anillos </h1>
+            </div>
+            <div className='info-aros'>
+            Descubre los anillos de Zephyr, piezas únicas diseñadas para quienes aprecian la excelencia. Elaborados con materiales de la más alta calidad, nuestros anillos combinan técnicas tradicionales con diseños contemporáneos para ofrecer un símbolo de lujo y sofisticación. Cada anillo cuenta una historia, reflejando elegancia, carácter y un estilo atemporal. Ideales para marcar momentos inolvidables o como un accesorio que eleve tu día a día, los anillos de Zephyr son más que joyas: son una experiencia.
+            </div>
+            <div >
+              <button className='boton-aros'> Explorar la colección</button>
+            </div>
+          </div>
+          <div className="video-anillos">
+            <video className="video-anillos" autoPlay loop muted>
               <source src={VideoAnillos} type="video/mp4" />
               Tu navegador no soporta videos HTML5.
             </video>
           </div>
         </div>
-
-        <div className="Anillos">
-          <div className="video-anillos">
-            <video className="video-anillos" autoPlay loop muted>
-              <source src={VideoAros} type="video/mp4" />
-              Tu navegador no soporta videos HTML5.
-            </video>
-          </div>
-        </div>
-      </section>
+      </div>
+      
     </div>
   );
 };
