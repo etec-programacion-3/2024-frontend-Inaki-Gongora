@@ -77,7 +77,7 @@ export const buscarProductos = async (nombre, minPrecio, maxPrecio) => {
 // Obtener productos del carrito de un usuario
 export const getCarrito = async (userId) => {
   try {
-    const response = await axios.get(`/api/carrito/${userId}`);
+    const response = await axios.get(`/api/carritos/${userId}`);
     return response.data;
   } catch (error) {
     console.error("Error al obtener el carrito:", error);
@@ -94,7 +94,7 @@ export const addToCarrito = async (productId, cantidad) => {
   try {
     console.log('Datos enviados:', { productId, cantidad }); // Verificamos los datos del body
     const response = await axios.post(
-      'http://localhost:3000/api/carrito/producto',
+      'http://localhost:3000/api/carritos/producto',
       { productId, cantidad },
       {
         headers: {
@@ -112,7 +112,7 @@ export const addToCarrito = async (productId, cantidad) => {
 // Eliminar producto del carrito
 export const removeFromCarrito = async (userId, productoId) => {
   try {
-    const response = await axios.delete(`/api/carrito/${userId}/${productoId}`);
+    const response = await axios.delete(`/api/carritos/${userId}/${productoId}`);
     return response.data;
   } catch (error) {
     console.error("Error al eliminar del carrito:", error);
