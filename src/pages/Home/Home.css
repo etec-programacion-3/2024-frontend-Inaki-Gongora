@@ -3,8 +3,6 @@
     margin-top: 0px; /* Ajusta la distancia de desplazamiento */
 }
 
-
-
 .abril-fatface-regular {
     font-family: "Abril Fatface", serif;
     font-weight: lighter;
@@ -20,10 +18,10 @@
     "width" 100;
 }
 
-.video-background{
+.video-background {
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 900px;
     overflow: hidden;
 }
 
@@ -38,23 +36,23 @@
     z-index: -1; /* Asegura que el video esté detrás del contenido */
 }
 
-.Imagen-fondo {
+.imagen-fondo {
     position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: left;
+    width: 800px;
+    height: 300px;
     display: flex;
     align-items: flex-end;
+    border: 2px red solid;
 }
-
 
 /* Style for the section and its children */
 .seccion {
-    display: flex;            /* Enables flexbox layout */
-    justify-content: space-around; /* Adds spacing between the items */
-    align-items: center;      /* Vertically aligns items in the center */
-    margin: 20px;
-    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction:row; /* Los elementos hijos estarán apilados verticalmente */
+    gap: 40px; /* Espaciado entre las secciones */
+    padding: 40px;
+    background-color: #f9f9f9; /* Color de fondo suave */
 }
 
 .div-imagenes {
@@ -62,8 +60,7 @@
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
-    font-variation-settings:
-      "width" 100;
+    font-variation-settings: "width" 100;
     width: 45%;   
     height: 800px; 
     text-align: center; 
@@ -73,16 +70,16 @@
     background-size: cover;
     background-position: center;
     color: white;
-    display: flex;             /* Enables flexbox layout */
-    flex-direction: column;    /* Stack children vertically */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stack children vertically */
     justify-content: flex-end; /* Align children to the bottom */
-    margin-bottom: 30px;       /* Add spacing below the div */
+    margin-bottom: 30px; /* Add spacing below the div */
     transition: transform 0.3s;
-    text-decoration: none /* Smooth transition for hover effect */
+    text-decoration: none;
 }
 
 .div-imagenes:hover {
-    transform: scale(1.01);    /* Slightly enlarge the div on hover */
+    transform: scale(1.01); /* Slightly enlarge the div on hover */
 }
 
 .div-imagenes1 {
@@ -91,21 +88,20 @@
     text-align: center; 
     padding: 20px;
     background-color: #f9f9f9; 
-    background-image: url(./../../assets/fondoaroscolgantes\ -home.jpg);
+    background-image: url(./../../assets/fondoaroscolgantes.jpg);
     background-size: cover;
-    background-position: calc();
+    background-position: center;
     color: rgb(0, 0, 0);
-    display: flex;             /* Enables flexbox layout */
-    flex-direction: column;    /* Stack children vertically */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stack children vertically */
     justify-content: flex-end; /* Align children to the bottom */
-    margin-bottom: 30px;       /* Add spacing below the div */
+    margin-bottom: 30px; /* Add spacing below the div */
     transition: transform 0.3s; /* Smooth transition for hover effect */
     text-decoration: none;
 }
 
-
 .div-imagenes1:hover {
-    transform: scale(1.01);    /* Slightly enlarge the div on hover */
+    transform: scale(1.01); /* Slightly enlarge the div on hover */
 }
 
 @keyframes slideInFromBottom {
@@ -139,7 +135,7 @@
     margin-bottom: 0;
 }
 
-.Subtitulo{
+.Subtitulo {
     color: rgb(0, 0, 0);
     opacity: 0.90; /* Texto visible desde el inicio */
     font-weight: 300;
@@ -148,7 +144,7 @@
     font-weight: 500;
 }
 
-.div-coleccion{
+.div-coleccion {
     padding: 60px;
 }
 
@@ -159,7 +155,6 @@
     text-shadow: 3px 3px 3px rgba(50, 50, 50, 0.474); /* Sombra */
     font-weight: 400;
 }
-
 
 .Nueva-Coleccion.show {
     animation: slideInFromBottom 1s forwards;
@@ -181,7 +176,6 @@
     align-items: center;
     width: 100%; /* Asegura que ocupa el ancho completo */
     text-align: center;
-    
 }
 
 .zephyr-info {
@@ -198,7 +192,6 @@
     font-family: "ITC Novarese for Swarovski";
     font-size: 50px;
     font-weight: 100;
-
 }
 
 .descripcion-zephyr {
@@ -214,3 +207,39 @@
     font-weight: 100;
     padding-top: 40px;
 }
+
+
+
+
+/* Asegúrate de que los contenedores de los videos sean verticales */
+/* Contenedor principal de la sección de videos */
+.seccion {
+    display: flex;
+    justify-content: center;  /* Centra los videos horizontalmente */
+    align-items: center;  /* Centra los videos verticalmente */
+    gap: 320px;  /* Espacio entre los videos */
+    width: 100%;
+    height: 100vh;  /* Ajusta la altura al 100% de la pantalla */
+}
+
+/* Ajustar el tamaño de los videos */
+.video-aros,
+.video-anillos {
+    width: 500px;  /* Hazlos más grandes ajustando el ancho */
+    height: 700px;  /* Aumenta la altura */
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Asegura que el video se recorte correctamente */
+.video-aros video,
+.video-anillos video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Mantiene el video sin deformarlo */
+}
+
+
+
+
+

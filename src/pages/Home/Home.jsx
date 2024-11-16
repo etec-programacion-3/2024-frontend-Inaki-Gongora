@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import VideoFondo from './../../assets/video.mp4'; // Importa el video
+import VideoFondo from './../../assets/video.mp4'; 
+import VideoAros from './../../assets/video-anillos-aros.mp4'
+
 
 const Home = () => {
   return (
@@ -17,7 +19,7 @@ const Home = () => {
           <source src={VideoFondo} type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </video>
-        
+
         <div className="Imagen-fondo">
           <div className='div-coleccion'>
             <p className="Nueva-Coleccion"> Nueva Colección 2024 </p>
@@ -42,63 +44,26 @@ const Home = () => {
           Nuestros productos
         </h1>
     <section className="seccion">
-
       <div className='Aros'>
-        <div className='texto-aros'> 
-          <div className='titulo-aros'> 
-            <h1> Aros Zephyr: El Encanto del Lujo Atemporal </h1> 
-          </div>
-          <div className='info-aros'> <p>Los aros de Zephyr son más que accesorios, 
-            son una declaración de elegancia y sofisticación. Cada diseño es meticulosamente 
-            elaborado con materiales de la más alta calidad, fusionando arte y exclusividad en 
-            cada detalle. Desde líneas minimalistas hasta piezas audaces y deslumbrantes, nuestros 
-            aros destacan por su impecable brillo y estilo único, convirtiéndose en el complemento 
-            perfecto para realzar tu esencia y celebrar momentos inolvidables. Descubre la perfección 
-            cada par y deja que Zephyr sea el reflejo de tu lujo personal.</p>
-          </div>
-        </div>
         <div className='video-aros'>
-          <video className="video-fondo" autoPlay loop muted>
-            <source src={VideoFondo} type="video/mp4" />
+          <video className="video-aros" autoPlay loop muted>
+            <source src={VideoAros} type="video/mp4" />
             Tu navegador no soporta videos HTML5.
           </video>
         </div>
       </div>
 
       <div className='Anillos'>
-        <div className='texto-anillos'> 
-          <div className='titulo-aniollos'> 
-            <h1> Aros Zephyr: El Encanto del Lujo Atemporal </h1> 
-          </div>
-          <div className='info-anillos'> <p>Los aros de Zephyr son más que accesorios, 
-            son una declaración de elegancia y sofisticación. Cada diseño es meticulosamente 
-            elaborado con materiales de la más alta calidad, fusionando arte y exclusividad en 
-            cada detalle. Desde líneas minimalistas hasta piezas audaces y deslumbrantes, nuestros 
-            aros destacan por su impecable brillo y estilo único, convirtiéndose en el complemento 
-            perfecto para realzar tu esencia y celebrar momentos inolvidables. Descubre la perfección 
-            cada par y deja que Zephyr sea el reflejo de tu lujo personal.</p>
-          </div>
-        </div>
         <div className='video-anillos'>
-          <video className="video-fondo" autoPlay loop muted>
-            <source src={VideoFondo} type="video/mp4" />
+          <video className="video-anillos" autoPlay loop muted>
+            <source src={VideoAros} type="video/mp4" />
             Tu navegador no soporta videos HTML5.
           </video>
         </div>
       </div>
-
-      </section>
+    </section>
     </div>
   );
 };
 
 export default Home;
-
-  {/* <Link to="/anillos" 
-        className="div-imagenes">
-          <h1 className="ArosAnillos">Anillos</h1>
-        </Link>
-        <Link to="/aros" 
-          className="div-imagenes1">
-          <h1 className="ArosAnillos">Aros</h1>
-        </Link> */}
