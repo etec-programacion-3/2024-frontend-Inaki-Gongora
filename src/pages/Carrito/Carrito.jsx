@@ -21,59 +21,46 @@ const Carrito = () => {
         if (!token) {
           throw new Error('Usuario no autenticado. Falta el token.');
         }
-
+  
         const response = await axios.get('http://localhost:3000/api/carritos/carrito', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-
-        setProductos(response.data); // Guardamos los productos en el estado
-        setLoading(false);           // Cambiar el estado de loading
+  
+        console.log("Productos obtenidos del backend:", response.data);  // Verifica qué datos estás recibiendo
+        setProductos(response.data);
+        setLoading(false);
       } catch (err) {
         console.error('Error al obtener el carrito', err);
         setError('Error al obtener el carrito');
         setLoading(false);
       }
     };
-
+  
     obtenerCarrito();
   }, []);
 
-  const eliminarProducto = async (productoId) => {
+  const eliminarProducto = async (idRelacion) => {
     try {
       const token = localStorage.getItem('token');
       if (!token) {
         throw new Error('Usuario no autenticado. Falta el token.');
       }
   
-      // Ahora pasamos el productoId directamente en la URL
-      const response = await axios.delete(`http://localhost:3000/api/carritos/producto/${productoId}`, {
+      await axios.delete(`http://localhost:3000/api/carritos/eliminar/${idRelacion}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
   
-      console.log('Respuesta del backend:', response.data);  // Log para debug
-  
-      // Si el producto se eliminó correctamente, actualizamos el carrito
-      alert(response.data.message); // Mostrar mensaje de éxito
-  
-      // Actualizamos la lista de productos obteniéndola nuevamente desde el backend
-      const carritoResponse = await axios.get('http://localhost:3000/api/carritos/carrito', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-  
-      console.log('Productos actualizados del carrito:', carritoResponse.data);  // Log para debug
-  
-      setProductos(carritoResponse.data); // Actualizamos los productos con los datos más recientes
+      // Después de eliminar, puedes actualizar el estado para reflejar los cambios en el carrito
+      setProductos((prevProductos) => prevProductos.filter((producto) => producto.id !== idRelacion));
     } catch (err) {
-      console.error('Error al eliminar el producto del carrito:', err);
-      setError('Error al eliminar el producto del carrito');
+      console.error('Error al eliminar producto del carrito', err);
     }
   };
+
   const mostrarModal = () => {
     setModalVisible(true);
   };
@@ -99,28 +86,20 @@ const Carrito = () => {
         ) : (
           <>
             <h1>Productos en tu carrito</h1>
-            <div className="productos-carrito">
-              {productos.map((producto) => (
-                <div key={producto.id} className="producto-card">
-                  <h3>{producto.nombre}</h3>
-                  <p>Precio: ${producto.precio}</p>
-                  <p>Cantidad: {producto.cantidad}</p>
-                  {producto.imagen ? (
-                    <img
-                      className="producto-imagen"
-                      src={producto.imagen.startsWith('http') ? producto.imagen : `http://localhost:3001${producto.imagen}`}
-                      alt={producto.nombre}
-                    />
-                  ) : (
-                    <img
-                      className="producto-imagen"
-                      src="ruta-a-imagen-por-defecto.png"
-                      alt="Producto por defecto"
-                    />
-                  )}
-                  <button onClick={() => eliminarProducto(producto.id)}>Eliminar</button>
-                </div>
-              ))}
+            <div className="carrito">
+            {productos.map((producto) => (
+              <div key={producto.id} className="producto">
+                <h3>{producto.nombre}</h3>
+                <p>Precio: ${producto.precio}</p>
+                <p>Cantidad: {producto.cantidad}</p>
+                <button onClick={() => {
+                  console.log("Producto a eliminar (ID):", producto.id);  // Verifica el ID en el clic
+                  eliminarProducto(producto.id);
+                }}>
+                  Eliminar
+                </button>
+              </div>
+            ))}
             </div>
           </>
         )}
