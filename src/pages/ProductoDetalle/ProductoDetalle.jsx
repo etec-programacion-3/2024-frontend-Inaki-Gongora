@@ -39,12 +39,13 @@ const ProductoDetalle = () => {
       navigate('/login');  // Usamos navigate en lugar de history.push
       return;
     }
-
+  
     try {
-      await addToCarrito(id, 1);  // Agregar al carrito con cantidad 1
+      await addToCarrito(id, 1, token);  // Asegúrate de pasar el token aquí
       alert('Producto agregado al carrito.');
     } catch (error) {
       alert('Hubo un problema al agregar el producto al carrito.');
+      console.error('Error al agregar al carrito:', error);
     }
   };
 

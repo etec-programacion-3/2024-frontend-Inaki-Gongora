@@ -86,13 +86,26 @@ export const getCarrito = async (userId) => {
 };
 
 // Agregar producto al carrito
-export const addToCarrito = async (userId, productoId, cantidad) => {
+
+export const addToCarrito = async (productId, cantidad) => {
+  const token = localStorage.getItem('token'); // Obtenemos el token del localStorage
+  console.log('Token recuperado del localStorage:', token);
+
   try {
-    const response = await axios.post(`/api/carrito/${userId}`, { producto_id: productoId, cantidad });
-    return response.data;
+    console.log('Datos enviados:', { productId, cantidad }); // Verificamos los datos del body
+    const response = await axios.post(
+      'http://localhost:3000/api/carrito/producto',
+      { productId, cantidad },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Cabecera de autorización
+          'Content-Type': 'application/json', // Tipo de contenido
+        },
+      }
+    );
+    console.log('Respuesta del servidor:', response.data); // Verificamos la respuesta
   } catch (error) {
-    console.error("Error al agregar al carrito:", error);
-    throw error;
+    console.error('Error al agregar al carrito:', error.response?.data || error.message); // Error detallado
   }
 };
 

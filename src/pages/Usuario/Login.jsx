@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Asegúrate de tener axios instalado
-import * as jwt_decode from 'jwt-decode';
 import { useAuth } from '../../context/AuthContext';
 import './Login.css';
 
@@ -27,26 +26,26 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  setErrorMessage('');
-  try {
-    const response = await axios.post(`${API_URL}login`, { email, contraseña: password });
-    
-    if (response.data.token) {
-      const decodedToken = jwt_decode(response.data.token);  // Decodificar el token
-      const userId = decodedToken.user_id; // Suponiendo que 'user_id' esté en el payload del token
+    setErrorMessage('');
+    try {
+      const response = await axios.post(`${API_URL}login`, { email, contraseña: password });
 
-      login(response.data.token); // Llama a login con el token
-      localStorage.setItem('user_id', userId); // Guardamos el user_id en localStorage
+      if (response.data.token) {
+        // Eliminar todo lo relacionado con jwt_decode
+        const token = response.data.token;
+        
+        login(token); // Llama a login con el token
+        localStorage.setItem('token', token); // Guardamos el token en localStorage
 
-      navigate('/perfil'); // Redirige al perfil después del inicio de sesión
-    } else {
-      setErrorMessage('Email o contraseña incorrectos.');
+        navigate('/perfil'); // Redirige al perfil después del inicio de sesión
+      } else {
+        setErrorMessage('Email o contraseña incorrectos.');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      setErrorMessage('Ocurrió un error al intentar iniciar sesión.');
     }
-  } catch (error) {
-    console.error('Error al iniciar sesión:', error);
-    setErrorMessage('Ocurrió un error al intentar iniciar sesión.');
-  }
-};
+  };
 
   const handleCreateAccount = () => {
     navigate('/Registro'); // Cambia la ruta según la que hayas definido para "Crear cuenta"
