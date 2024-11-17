@@ -266,7 +266,7 @@ input {
     font-size: 15px;
     font-weight: bold;
     width: calc(100% - 140px); 
-    background-color: #093b5d; 
+    background-color: #7a7a7a; 
     color: #fff;
     border: none;
     margin-bottom: 10px;
@@ -342,9 +342,9 @@ input {
 .producto p {
     font-size: 16px;
     margin: 5px 0;
-  }
-  
-  .producto button {
+}
+
+.producto button {
     padding: 10px 20px;
     font-size: 14px;
     font-family: "Advent Pro", sans-serif;

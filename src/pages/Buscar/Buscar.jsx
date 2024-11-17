@@ -55,10 +55,10 @@ const Buscar = () => {
           value={precioRango}
           onChange={handleSliderChange}
           allowCross={false}
-          trackStyle={[{ backgroundColor: '#007acc' }]}
+          trackStyle={[{ backgroundColor: 'black' }]}
           handleStyle={[
-            { borderColor: '#007acc', backgroundColor: '#007acc' },
-            { borderColor: '#007acc', backgroundColor: '#007acc' },
+            { borderColor: 'white', backgroundColor: 'black' },
+            { borderColor: 'white', backgroundColor: 'black' },
           ]}
         />
         <div className="precio-valores">
