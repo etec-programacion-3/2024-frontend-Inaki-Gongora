@@ -88,6 +88,8 @@ body {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
 }
 
 .imagenloca {
@@ -97,14 +99,26 @@ body {
   border-radius: 8px; /* Da un borde redondeado a la imagen */
 }
 
-.producto-nombre {
+.producto-nombres {
   font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";
-  font-weight: 200;
+  font-weight: 500;
   width: 81%;
   text-align: center;
-  font-size: 1.1rem;
-  color: #333;
+  font-size: 1.3rem;
+  color: #000000;
   margin: 10px 0;
+
+}
+
+.producto-precio{
+  text-decoration: none;
+  color: #000;
+  color: inherit;
+}
+
+.producto-precio:hover, .producto-precio:focus, .producto-precio:active {
+  text-decoration: none; /* Mantiene el estilo limpio en interacciones */
+  color: inherit;
 }
 
 .producto-precio-original {

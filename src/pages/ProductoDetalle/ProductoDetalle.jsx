@@ -66,10 +66,10 @@ const ProductoDetalle = () => {
           <h4 className="pago">{producto.disponibilidad ? 'Disponible' : 'No disponible'}</h4>
           <hr></hr>
           <div className="detalles-linea">
-            <span><strong>Talla:</strong> {producto.talla || 'No disponible'}</span>
+            <span className='talle'><strong>Talla:</strong> {producto.talla || 'No disponible'}</span>
             <br></br>
             <br></br>
-            <span><strong>Color:</strong> {producto.color || 'No disponible'}</span>
+            <span className='color'><strong>Color:</strong> {producto.color || 'No disponible'}</span>
           </div>
 
           <h4 className="guia" onClick={toggleGuia}>

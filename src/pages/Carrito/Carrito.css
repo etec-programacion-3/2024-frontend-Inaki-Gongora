@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    min-height: 100%;
 }
 
 .abril-fatface-regular {
@@ -27,31 +28,25 @@ body {
         "wdth" 100;
 }
 
-  
-  
 .botones-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     transform: scale(0.65,0.65);
-    float: right;
-  
+    float: right; 
 }
-  
-  
+
 .botones-header button {
     height: 100px;
     border: none;
     transform: scale(0.7,0.7);
     vertical-align: middle;
-}
-  
+} 
 .botones-header :hover{
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.2s;
-}
-  
+} 
 .icono-menu,.icono-buscar,.icono-carro,.icono-usuario {
     background: none;
 }
@@ -60,12 +55,16 @@ body {
     color: black;
     text-decoration: none;
 }
-  
+
 .marca-registrada {
     font-size: 40px;
     vertical-align:bottom;
 }
-  
+
+.producto-en-tu-carrito{
+    margin-bottom: 50px;
+}
+
 .zephyr-grande{
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -132,8 +131,17 @@ hr {
 
 .carrito-container {
     width: 1100px; 
-    height: 600px;
+    height: auto; /* Cambiado de un tamaño fijo a automático */
+    max-height: 600px; /* Máxima altura para evitar que el contenedor crezca demasiado */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; /* Asegura que los productos se alineen al principio */
 }
+
 
 .resumen-container {
     width: 500px; 
@@ -291,4 +299,67 @@ input {
 
 .crear-cuenta:hover {
     color: #00538f; 
+}
+
+
+.carrito {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
+.producto img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    font-size: 20px;
+    font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans", sans-serif;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.producto p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .producto button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: "Advent Pro", sans-serif;
+    color: #fff;
+    background-color: #000000;
+    border: black 1px solid;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.producto button:hover {
+    background-color: #ffffff;
+    color: black;
+}  
+
+.titulo-producto-carrito{
+    color: black;
 }

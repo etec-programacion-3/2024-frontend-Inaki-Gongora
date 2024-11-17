@@ -1,19 +1,18 @@
-// Carrito.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Carrito.css'; // Asegúrate de adaptar tus estilos aquí
+import './Carrito.css';
 import bolsaDeCompras from '../../assets/bolsas-de-compra.png';
 import tarjetaIcono from '../../assets/tarjeta-icono.png';
 import envioIcono from '../../assets/camion-icono.png';
 import cajaDevolucion from '../../assets/caja-de-devolucion.png';
+import imagenPredeterminada from "../../assets/foto-producto2.png";
 
 const Carrito = () => {
-  const [productos, setProductos] = useState([]); // Estado para los productos del carrito
-  const [loading, setLoading] = useState(true);   // Estado para manejar el loading
-  const [error, setError] = useState(null);       // Estado para manejar errores
-  const [modalVisible, setModalVisible] = useState(false); // Para el modal de pagos
+  const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
 
-  // Función para obtener los productos del carrito desde el backend
   useEffect(() => {
     const obtenerCarrito = async () => {
       try {
@@ -21,14 +20,13 @@ const Carrito = () => {
         if (!token) {
           throw new Error('Usuario no autenticado. Falta el token.');
         }
-  
+
         const response = await axios.get('http://localhost:3000/api/carritos/carrito', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-  
-        console.log("Productos obtenidos del backend:", response.data);  // Verifica qué datos estás recibiendo
+
         setProductos(response.data);
         setLoading(false);
       } catch (err) {
@@ -37,7 +35,7 @@ const Carrito = () => {
         setLoading(false);
       }
     };
-  
+
     obtenerCarrito();
   }, []);
 
@@ -47,14 +45,13 @@ const Carrito = () => {
       if (!token) {
         throw new Error('Usuario no autenticado. Falta el token.');
       }
-  
+
       await axios.delete(`http://localhost:3000/api/carritos/eliminar/${idRelacion}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-  
-      // Después de eliminar, puedes actualizar el estado para reflejar los cambios en el carrito
+
       setProductos((prevProductos) => prevProductos.filter((producto) => producto.id !== idRelacion));
     } catch (err) {
       console.error('Error al eliminar producto del carrito', err);
@@ -85,21 +82,23 @@ const Carrito = () => {
           </>
         ) : (
           <>
-            <h1>Productos en tu carrito</h1>
+            <h1 className='producto-en-tu-carrito'>Productos en tu carrito</h1>
             <div className="carrito">
-            {productos.map((producto) => (
-              <div key={producto.id} className="producto">
-                <h3>{producto.nombre}</h3>
-                <p>Precio: ${producto.precio}</p>
-                <p>Cantidad: {producto.cantidad}</p>
-                <button onClick={() => {
-                  console.log("Producto a eliminar (ID):", producto.id);  // Verifica el ID en el clic
-                  eliminarProducto(producto.id);
-                }}>
-                  Eliminar
-                </button>
-              </div>
-            ))}
+              {productos.map((producto) => (
+                <div key={producto.id} className="producto">
+                  <img
+                    src={producto.imagen || imagenPredeterminada}
+                    alt={producto.nombre}
+                    onError={(e) => e.target.src = imagenPredeterminada} // Manejo de error si la imagen no se carga
+                  />
+                  <h3 className='titulo-producto-carrito'>{producto.nombre}</h3>
+                  <p>Precio: ${producto.precio}</p>
+                  <p>Cantidad: {producto.cantidad}</p>
+                  <button onClick={() => eliminarProducto(producto.id)}>
+                    Eliminar
+                  </button>
+                </div>
+              ))}
             </div>
           </>
         )}
@@ -108,7 +107,6 @@ const Carrito = () => {
         <ResumenCompra mostrarModal={mostrarModal} />
       </div>
 
-      {/* Modal de Pagos */}
       {modalVisible && (
         <div id="modal" className="modal">
           <div className="modal-contenido">

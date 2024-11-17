@@ -47,7 +47,7 @@ const Anillos = () => {
           .map((producto) => (
             <Link to={`/producto/${producto.id}`} className="producto-card" key={producto.id}> {/* Link que redirige al detalle del producto */}
               <img src={producto.imagen || fotito} alt={producto.nombre} className="imagenloca" />
-              <h2 className="producto-nombre">{producto.nombre}</h2>
+              <h2 className="producto-nombres">{producto.nombre}</h2>
               <p className="producto-precio">
                 {
                   // Aseguramos que el precio es un número y es válido
