@@ -209,7 +209,8 @@
     font-size: 60px;
     font-weight: 100;
     padding-top: 40px;
-    border-bottom: 1px solid black;
+    padding-bottom: 30px;
+    /* border-bottom: 1px solid black; */
 }
 
 /* Contenedor principal de la sección de videos */
@@ -264,7 +265,7 @@
 }
 
 .video-anillos {
-    margin-right: 30px;
+    margin-right: 50px;
     width: 30%;
     height: 30%;
 }

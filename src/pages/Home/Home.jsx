@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import Video1 from './../../assets/Video1.mp4';
 import Video2 from './../../assets/Video2.mp4';
@@ -77,7 +78,9 @@ const Home = () => {
               Los aros de Zephyr son más que accesorios, son una declaración de elegancia y sofisticación. Cada diseño es meticulosamente elaborado con materiales de la más alta calidad, fusionando arte y exclusividad en cada detalle. Desde líneas minimalistas hasta piezas audaces y deslumbrantes, nuestros aros destacan por su impecable brillo y estilo único, convirtiéndose en el complemento perfecto para realzar tu esencia y celebrar momentos inolvidables. Descubre la perfección en cada par y deja que Zephyr sea el reflejo de tu lujo personal
             </div>
             <div >
-              <button className='boton-aros'> Explorar la colección</button>
+            <Link to='/aros'>
+              <button className='boton-aros'>Explorar la colección</button>
+            </Link>
             </div>
           </div>
         </div>
@@ -91,7 +94,9 @@ const Home = () => {
             Descubre los anillos de Zephyr, piezas únicas diseñadas para quienes aprecian la excelencia. Elaborados con materiales de la más alta calidad, nuestros anillos combinan técnicas tradicionales con diseños contemporáneos para ofrecer un símbolo de lujo y sofisticación. Cada anillo cuenta una historia, reflejando elegancia, carácter y un estilo atemporal. Ideales para marcar momentos inolvidables o como un accesorio que eleve tu día a día, los anillos de Zephyr son más que joyas: son una experiencia.
             </div>
             <div >
-              <button className='boton-aros'> Explorar la colección</button>
+              <Link to='/anillos'>
+                <button className='boton-aros'>Explorar la colección</button>
+              </Link>
             </div>
           </div>
           <div className="video-anillos">
