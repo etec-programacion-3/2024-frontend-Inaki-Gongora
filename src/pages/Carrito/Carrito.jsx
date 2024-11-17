@@ -12,6 +12,7 @@ const Carrito = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [total, setTotal] = useState(0); // Estado para el total del carrito
 
   useEffect(() => {
     const obtenerCarrito = async () => {
@@ -20,13 +21,23 @@ const Carrito = () => {
         if (!token) {
           throw new Error('Usuario no autenticado. Falta el token.');
         }
-
+  
         const response = await axios.get('http://localhost:3000/api/carritos/carrito', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-
+  
+        console.log("Respuesta del carrito:", response.data); // Log para verificar los datos
+  
+        // Confirmar que todos los productos tienen la propiedad `imagen`
+        response.data.forEach((producto, index) => {
+          console.log(`Producto ${index}:`, producto);
+          if (!producto.imagen) {
+            console.warn(`El producto con ID ${producto.id} no tiene imagen`);
+          }
+        });
+  
         setProductos(response.data);
         setLoading(false);
       } catch (err) {
@@ -35,9 +46,18 @@ const Carrito = () => {
         setLoading(false);
       }
     };
-
+  
     obtenerCarrito();
   }, []);
+
+  useEffect(() => {
+    // Calcula el total cada vez que cambian los productos
+    const nuevoTotal = productos.reduce(
+      (acumulador, producto) => acumulador + producto.precio * producto.cantidad,
+      0
+    );
+    setTotal(nuevoTotal);
+  }, [productos]);
 
   const eliminarProducto = async (idRelacion) => {
     try {
@@ -84,27 +104,29 @@ const Carrito = () => {
           <>
             <h1 className='producto-en-tu-carrito'>Productos en tu carrito</h1>
             <div className="carrito">
-              {productos.map((producto) => (
-                <div key={producto.id} className="producto">
-                  <img
-                    src={producto.imagen || imagenPredeterminada}
-                    alt={producto.nombre}
-                    onError={(e) => e.target.src = imagenPredeterminada} // Manejo de error si la imagen no se carga
-                  />
-                  <h3 className='titulo-producto-carrito'>{producto.nombre}</h3>
-                  <p>Precio: ${producto.precio}</p>
-                  <p>Cantidad: {producto.cantidad}</p>
-                  <button onClick={() => eliminarProducto(producto.id)}>
-                    Eliminar
-                  </button>
-                </div>
-              ))}
+            {productos.map((producto) => (
+              <div key={producto.producto_id} className="producto">
+                <img
+                  src={producto.imagen || imagenPredeterminada} // Asignar imagen o predeterminada
+                  alt={producto.nombre}
+                  onError={(e) => {
+                    console.warn(`No se pudo cargar la imagen para el producto con ID ${producto.producto_id}`);
+                    e.target.src = imagenPredeterminada;
+                  }} // Log si hay error al cargar la imagen
+                />
+                <h3 className='titulo-producto-carrito'>{producto.nombre}</h3>
+                <p>Precio: ${producto.precio}</p>
+                <button className='eliminar-producto' onClick={() => eliminarProducto(producto.id)}>
+                  Eliminar
+                </button>
+              </div>
+            ))}
             </div>
           </>
         )}
       </div>
       <div>
-        <ResumenCompra mostrarModal={mostrarModal} />
+        <ResumenCompra total={total} mostrarModal={mostrarModal} />
       </div>
 
       {modalVisible && (
@@ -128,11 +150,11 @@ const Carrito = () => {
   );
 };
 
-const ResumenCompra = ({ mostrarModal }) => (
+const ResumenCompra = ({ total, mostrarModal }) => (
   <div className="resumen-container">
     <div className="resumen-compra">
       <h1>Resumen de compra</h1>
-      <p className="aviso-importes">Aquí verás los importes de tu compra una vez que agregues productos</p>
+      <p>Total: ${total.toFixed(2)}</p>
     </div>
     <div className="botones-detalles">
       <hr />
