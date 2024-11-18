@@ -9,7 +9,7 @@ import { useAuth } from '../context/AuthContext';
 import Sidebar from './Sidebar';
 
 const Header = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, token } = useAuth(); // Asegúrate de que `useAuth` devuelve `isLoggedIn` y `token`.
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false); // Estado para visibilidad
@@ -19,10 +19,24 @@ const Header = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const isTokenValid = () => {
+    if (!token) return false; // Si no hay token, no es válido.
+    try {
+      const { exp } = JSON.parse(atob(token.split('.')[1])); // Decodifica el payload del JWT.
+      const currentTime = Math.floor(Date.now() / 1000); // Tiempo actual en segundos.
+      return exp > currentTime; // Valida si el token no ha expirado.
+    } catch (error) {
+      console.error('Error al verificar el token:', error);
+      return false;
+    }
+  };
+
   const handleAuthNavigation = () => {
-    if (isLoggedIn) {
+    if (isLoggedIn && isTokenValid()) {
+      // Si está logueado y el token es válido, ve a perfil.
       navigate('/perfil');
     } else {
+      // Si no, ve a login.
       navigate('/login');
     }
   };
