@@ -76,6 +76,7 @@
 
 .color{
   font-size: 18px;
+  margin: 0;
 }
 
 .div-talles {
@@ -111,6 +112,7 @@
   transition: 0.5s;
   padding: 10px 0;
   border-radius: 4px;
+  margin-bottom: 30px;
 }
 
 .compra:hover {
@@ -267,7 +269,6 @@
   max-width: 600px;
   width: 90%;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
 }
 
@@ -309,7 +310,8 @@
   cursor: pointer;
   font-size: 16px;
   transition: 0.4s;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 1px;
 }
 
 .guia:hover{
@@ -339,4 +341,36 @@ hr {
   margin: 10px 0; /* Ajusta el espacio arriba y abajo de la línea */
   border: 0;
   border-top: 1px solid #ccc; /* Establece el color de la línea */
+}
+
+.popup-notificacion {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 100px;
+  background-color: white;
+  border: 2px solid black;
+  z-index: 1000;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.cerrar-popup {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.cerrar-popup:hover {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
 }

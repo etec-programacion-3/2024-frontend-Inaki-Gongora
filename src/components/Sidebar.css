@@ -53,8 +53,8 @@
   }
   
   .sidebar-link:hover {
-    color: #007acc;
-    background-color: #e0e0e0; /* Fondo de hover para dar efecto de botón */
+    color: #ffffff;
+    background-color: #4b4b4b; /* Fondo de hover para dar efecto de botón */
   }
   
   .sidebar-spacer {

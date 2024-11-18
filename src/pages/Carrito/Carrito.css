@@ -370,3 +370,21 @@ input {
     border-radius: 4px;
     font-weight: bold;
 }
+
+.finalizar-compra{
+    margin: 15px;
+    color: #fefefe;
+    background-color: black;
+    padding: 15px;
+    border: black 1px solid;
+    width: 200px;
+    font-size: 18px;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+.finalizar-compra:hover{
+    color: black;
+    background-color: white;
+    border: black 1px solid;
+}

@@ -12,6 +12,7 @@ const Carrito = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [agradecimientoVisible, setAgradecimientoVisible] = useState(false); // Estado para el popup
   const [total, setTotal] = useState(0); // Estado para el total del carrito
 
   useEffect(() => {
@@ -26,16 +27,6 @@ const Carrito = () => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        });
-  
-        console.log("Respuesta del carrito:", response.data); // Log para verificar los datos
-  
-        // Confirmar que todos los productos tienen la propiedad `imagen`
-        response.data.forEach((producto, index) => {
-          console.log(`Producto ${index}:`, producto);
-          if (!producto.imagen) {
-            console.warn(`El producto con ID ${producto.id} no tiene imagen`);
-          }
         });
   
         setProductos(response.data);
@@ -75,6 +66,30 @@ const Carrito = () => {
       setProductos((prevProductos) => prevProductos.filter((producto) => producto.id !== idRelacion));
     } catch (err) {
       console.error('Error al eliminar producto del carrito', err);
+    }
+  };
+
+  const finalizarCompra = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        alert('Usuario no autenticado. Por favor, inicie sesión.');
+        return;
+      }
+
+      // Vaciar el carrito en el servidor
+      await axios.delete('http://localhost:3000/api/carritos/vaciar', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      // Vaciar carrito localmente
+      setProductos([]); // Limpia la lista de productos
+      setAgradecimientoVisible(true); // Muestra el popup de agradecimiento
+    } catch (err) {
+      console.error('Error al finalizar la compra:', err);
+      alert('Hubo un problema al procesar la compra. Por favor, inténtelo nuevamente.');
     }
   };
 
@@ -126,7 +141,7 @@ const Carrito = () => {
         )}
       </div>
       <div>
-        <ResumenCompra total={total} mostrarModal={mostrarModal} />
+        <ResumenCompra total={total} mostrarModal={mostrarModal} finalizarCompra={finalizarCompra} />
       </div>
 
       {modalVisible && (
@@ -146,15 +161,28 @@ const Carrito = () => {
           </div>
         </div>
       )}
+
+      {agradecimientoVisible && (
+        <div id="agradecimiento" className="agradecimiento-popup">
+          <div className="agradecimiento-contenido">
+            <span className="cerrar" onClick={() => setAgradecimientoVisible(false)}>&times;</span>
+            <h1>¡Gracias por comprar en Zephyr!</h1>
+            <p>Tu compra ha sido procesada con éxito.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-const ResumenCompra = ({ total, mostrarModal }) => (
+const ResumenCompra = ({ total, mostrarModal, finalizarCompra }) => (
   <div className="resumen-container">
     <div className="resumen-compra">
       <h1>Resumen de compra</h1>
       <p>Total: ${total.toFixed(2)}</p>
+      <button className='finalizar-compra' onClick={finalizarCompra}>
+        Finalizar compra
+      </button>
     </div>
     <div className="botones-detalles">
       <hr />

@@ -1,0 +1,35 @@
+.footer-container {
+  background-color: #1a1a1a; /* Fondo oscuro */
+  color: #ccc; /* Texto claro */
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px; /* Espaciado entre elementos */
+}
+
+.footer-links span {
+  color: #ccc; /* Mismo color que el resto del texto */
+  margin: 0 5px; /* Margen horizontal para cada elemento */
+  font-size: 14px;
+  cursor: default; /* Elimina el efecto de puntero */
+}
+
+.footer-links span:hover {
+  text-decoration: none; /* Desactiva el subrayado al pasar el cursor */
+}
+
+.footer-links span:nth-child(odd) {
+  margin-right: 10px; /* Aumenta el espacio entre texto y separadores '|' */
+}
+
+.footer-copyright {
+  font-size: 12px;
+  margin-top: 10px;
+}

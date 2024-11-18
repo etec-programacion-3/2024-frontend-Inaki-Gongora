@@ -1,5 +1,3 @@
-// ProductoDetalle.jsx
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; // Cambié useHistory por useNavigate
 import { fetchProductoById } from '../../services/api';
@@ -11,7 +9,9 @@ const ProductoDetalle = () => {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [mostrarGuia, setMostrarGuia] = useState(false);
-  const navigate = useNavigate();  // Usamos useNavigate en lugar de useHistory
+  const [mostrarPopup, setMostrarPopup] = useState(false); // Estado para controlar el popup
+  const [mensajePopup, setMensajePopup] = useState(''); // Estado para el mensaje del popup
+  const navigate = useNavigate(); // Usamos useNavigate en lugar de useHistory
 
   useEffect(() => {
     const getProducto = async () => {
@@ -33,20 +33,27 @@ const ProductoDetalle = () => {
   };
 
   const handleComprar = async () => {
-    const token = localStorage.getItem('token');  // Obtener el token del localStorage
+    const token = localStorage.getItem('token'); // Obtener el token del localStorage
     if (!token) {
-      alert('Por favor, inicia sesión para comprar.');
-      navigate('/login');  // Usamos navigate en lugar de history.push
+      setMensajePopup('Por favor, inicia sesión para comprar.');
+      setMostrarPopup(true);
+      navigate('/login'); // Usamos navigate en lugar de history.push
       return;
     }
-  
+
     try {
-      await addToCarrito(id, 1, token);  // Asegúrate de pasar el token aquí
-      alert('Producto agregado al carrito.');
+      await addToCarrito(id, 1, token); // Asegúrate de pasar el token aquí
+      setMensajePopup('Producto agregado al carrito.');
+      setMostrarPopup(true);
     } catch (error) {
-      alert('Hubo un problema al agregar el producto al carrito.');
+      setMensajePopup('Hubo un problema al agregar el producto al carrito.');
+      setMostrarPopup(true);
       console.error('Error al agregar al carrito:', error);
     }
+  };
+
+  const cerrarPopup = () => {
+    setMostrarPopup(false);
   };
 
   if (!producto) return <p>Loading...</p>;
@@ -61,15 +68,19 @@ const ProductoDetalle = () => {
         </div>
 
         <div className="info-producto">
-          <h1 className='titulo-producto'>{producto.nombre}</h1>
-          <h2 className='precio-producto'>${producto.precio}</h2>
+          <h1 className="titulo-producto">{producto.nombre}</h1>
+          <h2 className="precio-producto">${producto.precio}</h2>
           <h4 className="pago">{producto.disponibilidad ? 'Disponible' : 'No disponible'}</h4>
           <hr></hr>
           <div className="detalles-linea">
-            <span className='talle'><strong>Talla:</strong> {producto.talla || 'No disponible'}</span>
+            <span className="talle">
+              <strong>Talla:</strong> {producto.talla || 'No disponible'}
+            </span>
             <br></br>
             <br></br>
-            <span className='color'><strong>Color:</strong> {producto.color || 'No disponible'}</span>
+            <span className="color">
+              <strong>Color:</strong> {producto.color || 'No disponible'}
+            </span>
           </div>
 
           <h4 className="guia" onClick={toggleGuia}>
@@ -80,8 +91,8 @@ const ProductoDetalle = () => {
           {mostrarGuia && (
             <div className="popup-guia">
               <div className="popup-contenido">
-                <h2 className='guiatalles'>Guía de Talles</h2>
-                <p className='ppopup'>Utilice la siguiente tabla para elegir su talla.</p>
+                <h2 className="guiatalles">Guía de Talles</h2>
+                <p className="ppopup">Utilice la siguiente tabla para elegir su talla.</p>
                 <table>
                   <thead>
                     <tr>
@@ -144,19 +155,35 @@ const ProductoDetalle = () => {
                     </tr>
                   </tbody>
                 </table>
-                <button onClick={toggleGuia} className="cerrar-popup">Cerrar</button>
+                <button onClick={toggleGuia} className="cerrar-popup">
+                  Cerrar
+                </button>
               </div>
             </div>
           )}
 
           <div className="compra-container">
-            <button className="compra" onClick={handleComprar}>Comprar</button>
+            <button className="compra" onClick={handleComprar}>
+              Comprar
+            </button>
           </div>
 
           <h1 className="zapas-descrip-titulo">Descripción</h1>
           <h3 className="info-zapatillas">{producto.descripcion || 'No hay descripción disponible.'}</h3>
         </div>
       </div>
+
+      {/* Popup de notificación */}
+      {mostrarPopup && (
+        <div className="popup-notificacion">
+          <div className="popup-contenido">
+            <p>{mensajePopup}</p>
+            <button className="cerrar-popup" onClick={cerrarPopup}>
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
