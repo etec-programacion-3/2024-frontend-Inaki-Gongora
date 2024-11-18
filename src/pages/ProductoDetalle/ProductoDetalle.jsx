@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Cambié useHistory por useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchProductoById } from '../../services/api';
 import { addToCarrito } from '../../services/api'; // Importamos la función de agregar al carrito
 import { FaArrowAltCircleUp } from 'react-icons/fa'; // Icono de flecha
@@ -11,7 +11,7 @@ const ProductoDetalle = () => {
   const [mostrarGuia, setMostrarGuia] = useState(false);
   const [mostrarPopup, setMostrarPopup] = useState(false); // Estado para controlar el popup
   const [mensajePopup, setMensajePopup] = useState(''); // Estado para el mensaje del popup
-  const navigate = useNavigate(); // Usamos useNavigate en lugar de useHistory
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getProducto = async () => {
@@ -37,12 +37,12 @@ const ProductoDetalle = () => {
     if (!token) {
       setMensajePopup('Por favor, inicia sesión para comprar.');
       setMostrarPopup(true);
-      navigate('/login'); // Usamos navigate en lugar de history.push
+      navigate('/login');
       return;
     }
 
     try {
-      await addToCarrito(id, 1, token); // Asegúrate de pasar el token aquí
+      await addToCarrito(id, 1, token);
       setMensajePopup('Producto agregado al carrito.');
       setMostrarPopup(true);
     } catch (error) {
@@ -71,13 +71,13 @@ const ProductoDetalle = () => {
           <h1 className="titulo-producto">{producto.nombre}</h1>
           <h2 className="precio-producto">${producto.precio}</h2>
           <h4 className="pago">{producto.disponibilidad ? 'Disponible' : 'No disponible'}</h4>
-          <hr></hr>
+          <hr />
           <div className="detalles-linea">
             <span className="talle">
               <strong>Talla:</strong> {producto.talla || 'No disponible'}
             </span>
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             <span className="color">
               <strong>Color:</strong> {producto.color || 'No disponible'}
             </span>
@@ -121,38 +121,6 @@ const ProductoDetalle = () => {
                       <td>17</td>
                       <td>20</td>
                     </tr>
-                    <tr>
-                      <td>Mexico</td>
-                      <td>5</td>
-                      <td>7</td>
-                      <td>8</td>
-                      <td>10 1/2</td>
-                      <td>12</td>
-                    </tr>
-                    <tr>
-                      <td>US / CA</td>
-                      <td>4¾ - 5/XS</td>
-                      <td>6/S</td>
-                      <td>7/M</td>
-                      <td>8/L</td>
-                      <td>9/XL</td>
-                    </tr>
-                    <tr>
-                      <td>Japón</td>
-                      <td>9</td>
-                      <td>10 - 12</td>
-                      <td>13 - 15</td>
-                      <td>16 - 18</td>
-                      <td>19 - 20</td>
-                    </tr>
-                    <tr>
-                      <td>UK</td>
-                      <td>J½</td>
-                      <td>L</td>
-                      <td>N</td>
-                      <td>P / Q</td>
-                      <td>R</td>
-                    </tr>
                   </tbody>
                 </table>
                 <button onClick={toggleGuia} className="cerrar-popup">
@@ -173,16 +141,19 @@ const ProductoDetalle = () => {
         </div>
       </div>
 
-      {/* Popup de notificación */}
+      {/* Popup de notificación con fondo oscuro */}
       {mostrarPopup && (
-        <div className="popup-notificacion">
-          <div className="popup-contenido">
-            <p>{mensajePopup}</p>
-            <button className="cerrar-popup" onClick={cerrarPopup}>
-              Cerrar
-            </button>
+        <>
+          <div className="overlay" onClick={cerrarPopup}></div> {/* Fondo oscuro */}
+          <div className="popup-notificacion">
+            <div className="popup-contenido">
+              <p>{mensajePopup}</p>
+              <button className="cerrar-popup" onClick={cerrarPopup}>
+                Cerrar
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
