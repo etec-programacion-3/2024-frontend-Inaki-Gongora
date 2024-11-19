@@ -132,7 +132,7 @@ const ProductoDetalle = () => {
 
           <div className="compra-container">
             <button className="compra" onClick={handleComprar}>
-              Comprar
+              Agregar al carrito
             </button>
           </div>
 

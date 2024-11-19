@@ -1,23 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 function Footer() {
   return (
     <footer className="footer-container">
       <div className="footer-links">
-        <span>Configuración de las cookies</span>
+        <Link to="/develop" className="footer-link">Configuración de las cookies</Link>
         <span>|</span>
-        <span>Nuestros Datos</span>
+        <Link to="/develop" className="footer-link">Nuestros Datos</Link>
         <span>|</span>
-        <span>Términos y Condiciones</span>
+        <Link to="/develop" className="footer-link">Términos y Condiciones</Link>
         <span>|</span>
-        <span>Política de Cookies</span>
+        <Link to="/develop" className="footer-link">Política de Cookies</Link>
         <span>|</span>
-        <span>Política de Privacidad</span>
+        <Link to="/develop" className="footer-link">Política de Privacidad</Link>
         <span>|</span>
-        <span>Seleccionar País</span>
+        <Link to="/develop" className="footer-link">Seleccionar País</Link>
         <span>|</span>
-        <span>Reclamos</span>
+        <Link to="/develop" className="footer-link">Reclamos</Link>
       </div>
       <div className="footer-copyright">
         <p>&copy; 2024 Zephyr. Todos los derechos reservados.</p>

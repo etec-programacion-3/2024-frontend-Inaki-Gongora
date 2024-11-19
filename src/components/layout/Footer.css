@@ -12,6 +12,18 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px; /* Espaciado entre elementos */
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links:visited {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px; /* Espaciado entre elementos */
+  text-decoration: none;
+  color: white;
 }
 
 .footer-links span {
@@ -19,6 +31,12 @@
   margin: 0 5px; /* Margen horizontal para cada elemento */
   font-size: 14px;
   cursor: default; /* Elimina el efecto de puntero */
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links span:visited {
+  color: #ccc;
 }
 
 .footer-links span:hover {
@@ -32,4 +50,18 @@
 .footer-copyright {
   font-size: 12px;
   margin-top: 10px;
+}
+
+.footer-links .footer-link {
+  color: white; /* Color del texto */
+  text-decoration: none; /* Elimina el subrayado */
+}
+
+.footer-links .footer-link:visited {
+  color: white; /* Mantiene el color blanco para enlaces visitados */
+}
+
+.footer-links .footer-link:hover {
+  color: #cccccc; /* Cambia a un tono más claro al pasar el mouse (opcional) */
+  text-decoration: underline; /* Agrega subrayado al pasar el mouse (opcional) */
 }
