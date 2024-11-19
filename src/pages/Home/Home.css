@@ -1,0 +1,312 @@
+/* Agrega este estilo al elemento principal de la página */
+#contenido-principal {
+    margin-top: 0px; /* Ajusta la distancia de desplazamiento */
+}
+
+.abril-fatface-regular {
+    font-family: "Abril Fatface", serif;
+    font-weight: lighter;
+    font-style: normal;
+}
+
+.advent-pro-clean {
+    font-family: "Advent Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings:
+    "width" 100;
+}
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+}
+
+.video-fondo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Asegura que el video esté detrás del contenido */
+}
+
+.imagen-fondo {
+    position: relative;
+    width: 800px;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    border: 2px red solid;
+}
+
+/* Style for the section and its children */
+.seccion {
+    width: 100%;
+    display: flex;
+    flex-direction:row; /* Los elementos hijos estarán apilados verticalmente */
+    gap: 40px; /* Espaciado entre las secciones */
+    padding: 40px;
+    background-color: #f9f9f9; /* Color de fondo suave */
+}
+
+.div-imagenes {
+    font-family: "Advent Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings: "width" 100;
+    width: 45%;   
+    height: 800px; 
+    text-align: center; 
+    padding: 20px;
+    background-color: #f9f9f9; 
+    background-image: url(./../../assets/fondo-anilloshome.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-end; /* Align children to the bottom */
+    margin-bottom: 30px; /* Add spacing below the div */
+    transition: transform 0.3s;
+    text-decoration: none;
+}
+
+.div-imagenes:hover {
+    transform: scale(1.01); /* Slightly enlarge the div on hover */
+}
+
+.div-imagenes1 {
+    width: 45%;   
+    height: 800px; 
+    text-align: center; 
+    padding: 20px;
+    background-color: #f9f9f9; 
+    background-image: url(./../../assets/fondoaroscolgantes.jpg);
+    background-size: cover;
+    background-position: center;
+    color: rgb(0, 0, 0);
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-end; /* Align children to the bottom */
+    margin-bottom: 30px; /* Add spacing below the div */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+    text-decoration: none;
+}
+
+.div-imagenes1:hover {
+    transform: scale(1.01); /* Slightly enlarge the div on hover */
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToBottom {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.Nueva-Coleccion {
+    color: rgb(0, 0, 0);
+    opacity: 0.90; /* Texto visible desde el inicio */
+    font-weight: 500;
+    font-size: 90px;
+    font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";
+    margin-bottom: 0;
+}
+
+.Subtitulo {
+    color: rgb(0, 0, 0);
+    opacity: 0.90; /* Texto visible desde el inicio */
+    font-weight: 300;
+    font-size: 30px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.div-coleccion {
+    text-align:left;
+    padding: 60px;
+    margin-top: 32%;
+    margin-bottom: 5%;
+}
+
+.Sigman {
+    color: rgb(255, 255, 255);
+    font-size: 80px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 3px 3px 3px rgba(50, 50, 50, 0.474); /* Sombra */
+    font-weight: 400;
+}
+
+.Nueva-Coleccion.show {
+    animation: slideInFromBottom 1s forwards;
+}
+
+.Nueva-Coleccion.hide {
+    animation: slideOutToBottom 1s forwards;
+}
+
+.ArosAnillos {
+    font-size: 55px;
+    font-weight: 500;
+    font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";
+}
+
+.zephyr-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que ocupa el ancho completo */
+    text-align: center;
+}
+
+.zephyr-info {
+    text-align: center;
+    width: 100%; /* Define un ancho consistente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+    background-color: #fff; /* Fondo opcional */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+    padding: 70px;
+    background-color: #f0efe5;
+}
+
+.titulo-zephyr {
+    font-family: "ITC Novarese for Swarovski";
+    font-size: 50px;
+    font-weight: 100;
+}
+
+.descripcion-zephyr {
+    font-size: 18px;
+    margin: 0 auto; /* Centra el texto */
+    width: 800px;
+    font-weight: 400;
+}
+
+.titulo-zephyr-productos {
+    font-family: "ITC Novarese for Swarovski";
+    font-size: 60px;
+    font-weight: 100;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    /* border-bottom: 1px solid black; */
+}
+
+/* Contenedor principal de la sección de videos */
+.seccion {
+    display: flex;
+    justify-content: center;  /* Centra los videos horizontalmente */
+    align-items: center;  /* Centra los videos verticalmente */
+    gap: 320px;  /* Espacio entre los videos */
+    width: 100%;
+    height: 100vh;  /* Ajusta la altura al 100% de la pantalla */
+}
+
+/* Ajustar el tamaño de los videos */
+.video-aros,
+.video-anillos {
+
+    width: 500px;  /* Hazlos más grandes ajustando el ancho */
+    height: 700px;  /* Aumenta la altura */
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Asegura que el video se recorte correctamente */
+.video-aros video,
+.video-anillos video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Mantiene el video sin deformarlo */
+}
+
+.Aros {
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+}
+
+.aros-anillos {
+    background-color: white; /* Invertido de negro */
+    margin-bottom: 150px;
+}
+
+.Anillos {
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+}
+
+.video-aros {
+    margin-left: 30px;
+    width: 30%;
+    height: 30%;
+}
+
+.video-anillos {
+    margin-right: 50px;
+    width: 30%;
+    height: 30%;
+}
+
+.aros-texto {
+    width: 1200px;
+    padding: 50px;
+    background-color: white; /* Invertido de negro */
+}
+
+.titulo-aros {
+    font-size: 80px;
+    font-family: "ITC Novarese for Swarovski";
+    font-weight: 300;
+    color: black; /* Invertido de blanco */
+    text-align: left;
+}
+
+.info-aros {
+    font-size: 36px;
+    color: black; /* Invertido de blanco */
+    font-weight: lighter;
+    line-height: 1.7;
+    text-align: justify;
+
+}
+
+.boton-aros {
+    width: 100%;
+    height: 70px;
+    margin-top: 70px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: rgb(0, 0, 0); /* Invertido de blanco */
+    border: solid 1px black; /* Invertido */
+    color: white; /* Invertido de negro */
+    transition: 0.5s;
+}
+
+.boton-aros:hover {
+    border: solid 1px black; /* Invertido */
+    background-color: white; /* Invertido de negro */
+    color: black; 
+}

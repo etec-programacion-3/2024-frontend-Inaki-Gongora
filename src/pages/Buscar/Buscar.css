@@ -1,0 +1,144 @@
+/* src/pages/Buscar.css */
+
+.buscar-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .buscar-form {
+    margin-bottom: 1rem;
+  }
+  
+  .buscar-form input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Estilos para el filtro de precio */
+  .filtro-precio {
+    margin: 1.5rem 0;
+    text-align: left;
+  }
+  
+  .filtro-precio label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .rc-slider-track {
+    background-color: #1f1f1f;
+    height: 6px;
+  }
+  
+  .rc-slider-rail {
+    height: 6px;
+    background-color: #ddd;
+  }
+  
+  .rc-slider-handle {
+    border: 2px solid #4d4d4d;
+    background-color: #fff;
+    width: 18px;
+    height: 18px;
+    margin-top: -6px;
+    cursor: pointer;
+  }
+  
+  .rc-slider-handle:hover {
+    border-color: #585858;
+  }
+  
+  .precio-valores {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+  
+  .precio-valores span {
+    font-weight: bold;
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .buscar-button {
+    width: 97%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: #2c2c2c;
+    color: #fff;
+    border: black 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .buscar-button:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .resultados-busqueda {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .producto-resultado {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .buscar-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .resultados-busqueda {
+    margin-top: 20px;
+  }
+  
+  .producto-resultado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .producto-card:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .producto-info {
+    flex: 1;
+  }
+  
+  .producto-imagen {
+    width: 80px;
+    height: 80px;
+    object-fit: contain; /* Asegura que la imagen completa sea visible */
+    margin-left: 15px;
+    border-radius: 4px;
+    background-color: #f0f0f0; /* Opcional: agrega un color de fondo para imágenes más pequeñas */
+  }

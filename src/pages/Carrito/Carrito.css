@@ -1,0 +1,391 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    min-height: 100%;
+}
+
+.abril-fatface-regular {
+    font-family: "Abril Fatface", serif;
+    font-weight: lighter;
+    font-style: normal;
+}
+
+.advent-pro-clean {
+    font-family: "Advent Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.botones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: scale(0.65,0.65);
+    float: right; 
+}
+
+.botones-header button {
+    height: 100px;
+    border: none;
+    transform: scale(0.7,0.7);
+    vertical-align: middle;
+} 
+.botones-header :hover{
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+} 
+.icono-menu,.icono-buscar,.icono-carro,.icono-usuario {
+    background: none;
+}
+
+.logo-marca:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.marca-registrada {
+    font-size: 40px;
+    vertical-align:bottom;
+}
+
+.producto-en-tu-carrito{
+    margin-bottom: 50px;
+}
+
+.zephyr-grande{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: "Times New Roman";
+    font-size: 80px;
+    opacity: 0.9;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 50%; 
+    z-index: 3;
+    transform: translateX(-50%);
+    top: 30px;
+    left: 50%;
+    position: fixed;
+    opacity: "";
+}
+  
+.zephyr-grande:hover{
+    opacity: 0.65;
+}
+  
+.zephyr-grande:active{
+    opacity: 0.8;
+}
+
+html, body {
+    margin: 0;
+}
+
+.carrito-imagen {
+    max-width: 20%; 
+    margin-bottom: 20px; 
+    opacity: 0.5;
+}
+
+.container {
+    display: flex;
+    justify-content:space-around; 
+    align-items: center; 
+    font-family: "Advent Pro", sans-serif;
+    margin-top: auto; 
+    margin-bottom: auto; 
+    text-align: center; 
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc; 
+    margin: 10px 0 0 50px; 
+    width: 100%;
+}
+
+.carrito-container, .resumen-container, .detalles-container{
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content:center; 
+}
+
+.carrito-container {
+    width: 1100px; 
+    height: auto; /* Cambiado de un tamaño fijo a automático */
+    max-height: 600px; /* Máxima altura para evitar que el contenedor crezca demasiado */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; /* Asegura que los productos se alineen al principio */
+}
+
+
+.resumen-container {
+    width: 500px; 
+    height: 600px;
+    margin-bottom: auto;
+    margin-top: 50px;
+}
+
+.resumen-compra {
+    margin-bottom: 30px;
+}
+
+.aviso-importes {
+    margin-top: 40px;
+    opacity: 0.7;
+}
+
+.botones-detalles {
+    margin-top: 50px;
+    margin-left: -100px;
+}
+
+.img-detalles {
+    float: left;
+    max-width: 20%; 
+    margin-top: 20px;
+    background: none;
+}
+
+.boton-detalles {
+    background: none;
+    text-decoration: none;
+    border: none;
+    transform: scale(0.7,0.7);
+    opacity: 0.7;
+}
+
+.boton-detalles :hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.resumen-container h2 {
+    position: absolute;
+    width: 100px; 
+    text-align: left; 
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+/* Estilo para el modal */
+.modal {
+    display: none; /* Inicialmente oculto */
+    position: fixed; /* Fijar posición */
+    z-index: 1; /* Encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permitir desplazamiento */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo difuminado */
+}
+
+/* Contenido del modal */
+.modal-contenido {
+    background-color: #fefefe;
+    position: fixed; /* Posición fija para mantenerlo centrado */
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 40px;
+}
+
+.modal-texto {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Botón de cierre */
+.cerrar {
+    position: absolute; /* Posición absoluta para estar sobre el contenido */
+    top: 10px;
+    right: 10px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+h1 {
+    font-size: 24px;
+    font-family: "Advent Pro", sans-serif; 
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+input {
+    font-family: "Advent Pro", sans-serif;  
+    font-size: 15px;
+    font-weight: bold;
+    width: calc(100% - 125px); 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+
+.login-button {
+    font-family: "Advent Pro", sans-serif; 
+    font-size: 15px;
+    font-weight: bold;
+    width: calc(100% - 140px); 
+    background-color: #7a7a7a; 
+    color: #fff;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.a-login {
+    font-family: "Advent Pro", sans-serif; 
+    font-size: 15px;
+    font-weight: bold;
+    width: calc(100% - 140px); 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.recuperar-button {
+    color: #fff;
+    text-decoration: none;
+}
+
+.crear-cuenta {
+    color: #093b5d;
+    text-decoration: none;
+}
+
+.crear-cuenta:hover {
+    color: #00538f; 
+}
+
+
+.carrito {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
+.producto img {
+    width: 80%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    font-size: 20px;
+    font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans", sans-serif;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.producto p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.producto button {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: "Advent Pro", sans-serif;
+    color: #fff;
+    background-color: #000000;
+    border: black 1px solid;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.producto button:hover {
+    background-color: #ffffff;
+    color: black;
+}  
+
+.titulo-producto-carrito{
+    color: black;
+}
+
+.eliminar-producto{
+    width: 80%;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.finalizar-compra{
+    margin: 15px;
+    color: #fefefe;
+    background-color: black;
+    padding: 15px;
+    border: black 1px solid;
+    width: 200px;
+    font-size: 18px;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+.finalizar-compra:hover{
+    color: black;
+    background-color: white;
+    border: black 1px solid;
+}

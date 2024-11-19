@@ -1,0 +1,67 @@
+.footer-container {
+  background-color: #1a1a1a; /* Fondo oscuro */
+  color: #ccc; /* Texto claro */
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px; /* Espaciado entre elementos */
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links:visited {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px; /* Espaciado entre elementos */
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links span {
+  color: #ccc; /* Mismo color que el resto del texto */
+  margin: 0 5px; /* Margen horizontal para cada elemento */
+  font-size: 14px;
+  cursor: default; /* Elimina el efecto de puntero */
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links span:visited {
+  color: #ccc;
+}
+
+.footer-links span:hover {
+  text-decoration: none; /* Desactiva el subrayado al pasar el cursor */
+}
+
+.footer-links span:nth-child(odd) {
+  margin-right: 10px; /* Aumenta el espacio entre texto y separadores '|' */
+}
+
+.footer-copyright {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.footer-links .footer-link {
+  color: white; /* Color del texto */
+  text-decoration: none; /* Elimina el subrayado */
+}
+
+.footer-links .footer-link:visited {
+  color: white; /* Mantiene el color blanco para enlaces visitados */
+}
+
+.footer-links .footer-link:hover {
+  color: #cccccc; /* Cambia a un tono más claro al pasar el mouse (opcional) */
+  text-decoration: underline; /* Agrega subrayado al pasar el mouse (opcional) */
+}

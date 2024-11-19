@@ -1,0 +1,125 @@
+/* Oculta la barra de scroll en Firefox */
+* {
+  scrollbar-width: none;
+  margin: 0;
+}
+
+/* Oculta la barra de scroll en Chrome, Edge, y Safari */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Opcional: si quieres desactivar el scroll completamente en el eje Y o X */
+body {
+  overflow-y: hidden; /* Oculta el scroll vertical */
+  overflow-x: hidden; /* Oculta el scroll horizontal */
+}
+
+.aros-container {
+  text-align: center;
+}
+
+.aros-header {
+  margin-top: 0;
+  width: 100%;
+  height: 500px;
+  background-image: url('../../assets/fondoaroscolgantes.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 20px;
+  color: #fff;
+  margin-bottom: 60px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra hacia arriba */
+}
+
+.aros-title {
+  text-align: left;
+  font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";
+  font-weight: 100;
+  width: 600px;
+  font-size: 6rem;
+  margin: 0;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.aros-subtitle {
+  font-weight: 100;
+  text-align: left;
+  width: 620px;
+  font-size: 1.5rem;
+  margin: 0;
+  color: #000000;
+}
+
+.aros-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Muestra 4 aros por fila */
+  gap: 30px;
+  margin: 10px;
+}
+
+@media (max-width: 1200px) {
+  .aros-grid {
+    grid-template-columns: repeat(3, 1fr); /* Muestra 3 aros por fila en pantallas medianas */
+  }
+}
+
+@media (max-width: 900px) {
+  .aros-grid {
+    grid-template-columns: repeat(2, 1fr); /* Muestra 2 aros por fila en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 600px) {
+  .aros-grid {
+    grid-template-columns: 1fr; /* Muestra 1 anillo por fila en pantallas extra pequeñas */
+  }
+}
+
+.producto-card {
+  position: relative;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.imagenloca {
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+  object-fit: cover; /* Asegura que la imagen ocupe todo el espacio sin deformarse */
+  border-radius: 8px; /* Da un borde redondeado a la imagen */
+}
+
+.producto-nombre {
+  font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";
+  font-weight: 200;
+  width: 81%;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.producto-precio-original {
+  font-size: 1rem;
+  color: #999;
+  text-decoration: line-through;
+  margin-top: 5px;
+}
+
+.producto-precio-descuento {
+  font-family: "ITC Novarese for Swarovski", "serif", "Noto Sans";
+  font-weight: 100;
+  font-size: 1.4rem;
+  color: #000;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
